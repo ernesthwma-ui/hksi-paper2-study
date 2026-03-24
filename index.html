@@ -1,0 +1,3958 @@
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HKSI Paper 2 — Regulation of Securities Study Tool</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== DESIGN TOKENS ===== */
+    :root {
+      --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+      --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+      --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+      --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+      --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+
+      --space-1:  0.25rem;
+      --space-2:  0.5rem;
+      --space-3:  0.75rem;
+      --space-4:  1rem;
+      --space-5:  1.25rem;
+      --space-6:  1.5rem;
+      --space-8:  2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      --radius-full: 9999px;
+
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --content-wide: 1200px;
+
+      --font-body: 'DM Sans', 'Inter', system-ui, sans-serif;
+      --font-display: 'Inter', 'DM Sans', system-ui, sans-serif;
+    }
+
+    /* Dark theme — primary/default */
+    :root, [data-theme="dark"] {
+      --color-bg:              #0f172a;
+      --color-surface:         #1e293b;
+      --color-surface-2:       #243044;
+      --color-surface-offset:  #172033;
+      --color-surface-dynamic: #2d3f57;
+      --color-divider:         #1e2d42;
+      --color-border:          #2d3f57;
+
+      --color-text:            #e2e8f0;
+      --color-text-muted:      #94a3b8;
+      --color-text-faint:      #475569;
+      --color-text-inverse:    #0f172a;
+
+      --color-primary:         #14b8a6;
+      --color-primary-hover:   #0d9488;
+      --color-primary-active:  #0f766e;
+      --color-primary-highlight: #0d2e2b;
+      --color-primary-text:    #0f172a;
+
+      --color-gold:            #f59e0b;
+      --color-gold-hover:      #d97706;
+      --color-gold-highlight:  #2d1e06;
+      --color-gold-text:       #0f172a;
+
+      --color-success:         #22c55e;
+      --color-success-hover:   #16a34a;
+      --color-success-highlight: #0d2b18;
+
+      --color-error:           #f43f5e;
+      --color-error-hover:     #e11d48;
+      --color-error-highlight: #2d0a15;
+
+      --color-warning:         #fb923c;
+      --color-warning-highlight: #2d1206;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.6);
+    }
+
+    [data-theme="light"] {
+      --color-bg:              #f0f4f8;
+      --color-surface:         #ffffff;
+      --color-surface-2:       #f8fafc;
+      --color-surface-offset:  #e8edf4;
+      --color-surface-dynamic: #dde3ed;
+      --color-divider:         #e2e8f0;
+      --color-border:          #cbd5e1;
+
+      --color-text:            #0f172a;
+      --color-text-muted:      #475569;
+      --color-text-faint:      #94a3b8;
+      --color-text-inverse:    #f8fafc;
+
+      --color-primary:         #0d9488;
+      --color-primary-hover:   #0f766e;
+      --color-primary-active:  #115e59;
+      --color-primary-highlight: #ccfbf1;
+      --color-primary-text:    #ffffff;
+
+      --color-gold:            #d97706;
+      --color-gold-hover:      #b45309;
+      --color-gold-highlight:  #fef3c7;
+      --color-gold-text:       #ffffff;
+
+      --color-success:         #16a34a;
+      --color-success-hover:   #15803d;
+      --color-success-highlight: #dcfce7;
+
+      --color-error:           #e11d48;
+      --color-error-hover:     #be123c;
+      --color-error-highlight: #ffe4e6;
+
+      --color-warning:         #ea580c;
+      --color-warning-highlight: #ffedd5;
+
+      --shadow-sm: 0 1px 3px rgba(15,23,42,0.08);
+      --shadow-md: 0 4px 16px rgba(15,23,42,0.12);
+      --shadow-lg: 0 12px 40px rgba(15,23,42,0.18);
+    }
+
+    /* ===== BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+    }
+    body {
+      min-height: 100dvh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img, svg { display: block; }
+    button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+    input, select, textarea { font: inherit; color: inherit; }
+    a { color: var(--color-primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ::selection { background: color-mix(in srgb, var(--color-primary) 30%, transparent); }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; border-radius: var(--radius-sm); }
+    a, button, [role="button"] {
+      transition: color var(--transition-interactive), background var(--transition-interactive),
+                  border-color var(--transition-interactive), box-shadow var(--transition-interactive),
+                  opacity var(--transition-interactive);
+    }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
+    }
+
+    /* ===== APP LAYOUT ===== */
+    .app-wrapper {
+      display: flex;
+      height: 100dvh;
+      overflow: hidden;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      width: 280px;
+      min-width: 280px;
+      background: var(--color-surface);
+      border-right: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform var(--transition-interactive), width 200ms ease;
+      z-index: 100;
+    }
+    .sidebar.collapsed { width: 0; min-width: 0; }
+
+    .sidebar-header {
+      padding: var(--space-4) var(--space-5);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-shrink: 0;
+    }
+    .sidebar-logo {
+      flex-shrink: 0;
+    }
+    .sidebar-title {
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.2;
+    }
+    .sidebar-sub {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: 1px;
+    }
+
+    .sidebar-modes {
+      display: flex;
+      gap: var(--space-1);
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid var(--color-border);
+      flex-shrink: 0;
+    }
+    .mode-btn {
+      flex: 1;
+      padding: var(--space-2) var(--space-1);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      background: transparent;
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+      transition: all var(--transition-interactive);
+      text-align: center;
+      white-space: nowrap;
+    }
+    .mode-btn:hover { color: var(--color-primary); border-color: var(--color-primary); }
+    .mode-btn.active {
+      background: var(--color-primary);
+      color: var(--color-primary-text);
+      border-color: var(--color-primary);
+    }
+
+    .sidebar-topics {
+      flex: 1;
+      overflow-y: auto;
+      padding: var(--space-3) 0;
+    }
+    .sidebar-topics::-webkit-scrollbar { width: 4px; }
+    .sidebar-topics::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 4px; }
+
+    .topic-nav-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      padding: var(--space-3) var(--space-5);
+      cursor: pointer;
+      transition: background var(--transition-interactive);
+      border-left: 3px solid transparent;
+    }
+    .topic-nav-item:hover { background: var(--color-surface-2); }
+    .topic-nav-item.active {
+      background: var(--color-primary-highlight);
+      border-left-color: var(--color-primary);
+    }
+    .topic-num {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: var(--color-primary);
+      background: var(--color-primary-highlight);
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .topic-nav-item.active .topic-num {
+      background: var(--color-primary);
+      color: var(--color-primary-text);
+    }
+    .topic-info { flex: 1; min-width: 0; }
+    .topic-name {
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-text);
+      line-height: 1.3;
+    }
+    .topic-weight {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: 2px;
+    }
+    .weight-bar {
+      height: 3px;
+      background: var(--color-border);
+      border-radius: 2px;
+      margin-top: 4px;
+      overflow: hidden;
+    }
+    .weight-fill {
+      height: 100%;
+      background: var(--color-primary);
+      border-radius: 2px;
+      transition: width 400ms ease;
+    }
+
+    .sidebar-footer {
+      padding: var(--space-3) var(--space-4);
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .theme-toggle {
+      padding: var(--space-2);
+      border-radius: var(--radius-md);
+      color: var(--color-text-muted);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+    .theme-toggle:hover { color: var(--color-primary); border-color: var(--color-primary); }
+    .progress-summary {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .main-content::-webkit-scrollbar { width: 6px; }
+    .main-content::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 6px; }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3) var(--space-6);
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-surface);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      flex-shrink: 0;
+    }
+    .sidebar-toggle {
+      padding: var(--space-2);
+      border-radius: var(--radius-md);
+      color: var(--color-text-muted);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+    }
+    .sidebar-toggle:hover { color: var(--color-primary); border-color: var(--color-primary); }
+    .topbar-title {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text);
+      flex: 1;
+    }
+    .topbar-badge {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      background: var(--color-primary-highlight);
+      color: var(--color-primary);
+    }
+
+    .view-area {
+      flex: 1;
+      padding: var(--space-6);
+    }
+
+    /* ===== MIND MAP ===== */
+    .mindmap-container { max-width: 900px; }
+    .mindmap-header {
+      margin-bottom: var(--space-6);
+    }
+    .mindmap-title {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: var(--space-2);
+    }
+    .mindmap-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    .mindmap-controls {
+      display: flex;
+      gap: var(--space-2);
+      margin-bottom: var(--space-5);
+      flex-wrap: wrap;
+    }
+    .ctrl-btn {
+      padding: var(--space-2) var(--space-3);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+    }
+    .ctrl-btn:hover { color: var(--color-primary); border-color: var(--color-primary); }
+
+    .tree-root { display: flex; flex-direction: column; gap: var(--space-2); }
+
+    .tree-node { position: relative; }
+
+    .tree-node-header {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      cursor: pointer;
+      transition: all var(--transition-interactive);
+      user-select: none;
+    }
+    .tree-node-header:hover { border-color: var(--color-primary); background: var(--color-surface-2); }
+    .tree-node-header.level-0 {
+      background: var(--color-surface-2);
+      border-color: var(--color-primary);
+      border-left: 3px solid var(--color-primary);
+    }
+    .tree-node-header.level-1 {
+      border-left: 3px solid var(--color-gold);
+    }
+    .tree-node-header.level-2 {
+      border-left: 3px solid var(--color-text-faint);
+    }
+
+    .tree-toggle {
+      width: 18px;
+      height: 18px;
+      border-radius: var(--radius-sm);
+      background: var(--color-surface-dynamic);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 10px;
+      color: var(--color-text-muted);
+      transition: transform var(--transition-interactive);
+    }
+    .tree-node-header.open .tree-toggle { transform: rotate(90deg); }
+    .tree-spacer {
+      width: 18px;
+      flex-shrink: 0;
+    }
+
+    .tree-label {
+      flex: 1;
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      line-height: 1.45;
+    }
+    .tree-node-header.level-0 .tree-label { font-weight: 700; color: var(--color-primary); }
+    .tree-node-header.level-1 .tree-label { font-weight: 600; color: var(--color-gold); }
+
+    .tree-tag {
+      font-size: var(--text-xs);
+      padding: 2px 6px;
+      border-radius: var(--radius-full);
+      background: var(--color-gold-highlight);
+      color: var(--color-gold);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .tree-tag.important { background: var(--color-error-highlight); color: var(--color-error); }
+
+    .tree-children {
+      margin-left: var(--space-6);
+      padding-left: var(--space-4);
+      border-left: 1px dashed var(--color-border);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+    .tree-children.hidden { display: none; }
+
+    /* ===== FLASHCARD ===== */
+    .flashcard-container { max-width: 720px; margin: 0 auto; }
+    .fc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-5);
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+    .fc-filter {
+      display: flex;
+      gap: var(--space-2);
+    }
+    .fc-filter-btn {
+      padding: var(--space-2) var(--space-3);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      transition: all var(--transition-interactive);
+    }
+    .fc-filter-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .fc-filter-btn.active {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-primary-text);
+    }
+
+    .fc-progress {
+      margin-bottom: var(--space-5);
+    }
+    .fc-progress-bar {
+      height: 6px;
+      background: var(--color-border);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      margin-bottom: var(--space-2);
+    }
+    .fc-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-gold));
+      border-radius: var(--radius-full);
+      transition: width 300ms ease;
+    }
+    .fc-progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+
+    .fc-scene {
+      perspective: 1000px;
+      margin-bottom: var(--space-5);
+      cursor: pointer;
+    }
+    .fc-card {
+      position: relative;
+      width: 100%;
+      min-height: 280px;
+      transform-style: preserve-3d;
+      transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fc-card.flipped { transform: rotateY(180deg); }
+
+    .fc-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 1px solid var(--color-border);
+    }
+    .fc-front {
+      background: var(--color-surface);
+    }
+    .fc-back {
+      background: var(--color-surface-2);
+      transform: rotateY(180deg);
+      border-color: var(--color-primary);
+    }
+    .fc-card-label {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+    .fc-term {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.4;
+      margin-bottom: var(--space-3);
+    }
+    .fc-topic-tag {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: var(--color-primary-highlight);
+      color: var(--color-primary);
+    }
+    .fc-definition {
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      line-height: 1.7;
+      margin-bottom: var(--space-4);
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .fc-hint {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-3);
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+
+    .fc-actions {
+      display: flex;
+      gap: var(--space-3);
+      justify-content: center;
+      margin-bottom: var(--space-5);
+    }
+    .fc-got-it {
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-full);
+      background: var(--color-success-highlight);
+      color: var(--color-success);
+      border: 1px solid var(--color-success);
+      font-weight: 600;
+      font-size: var(--text-sm);
+    }
+    .fc-got-it:hover { background: var(--color-success); color: #fff; }
+    .fc-review {
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-full);
+      background: var(--color-error-highlight);
+      color: var(--color-error);
+      border: 1px solid var(--color-error);
+      font-weight: 600;
+      font-size: var(--text-sm);
+    }
+    .fc-review:hover { background: var(--color-error); color: #fff; }
+    .fc-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+    }
+    .fc-nav-btn {
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      font-weight: 500;
+    }
+    .fc-nav-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .fc-counter {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    /* ===== QUIZ ===== */
+    .quiz-container { max-width: 780px; }
+    .quiz-setup {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+    }
+    .quiz-setup-title {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: var(--space-2);
+    }
+    .quiz-setup-sub {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-6);
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+    .quiz-option-group { display: flex; flex-direction: column; gap: var(--space-2); }
+    .quiz-option-label {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    .quiz-option-row {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+    .qo-btn {
+      padding: var(--space-2) var(--space-4);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      border-radius: var(--radius-full);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      transition: all var(--transition-interactive);
+    }
+    .qo-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .qo-btn.selected {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-primary-text);
+    }
+    .start-quiz-btn {
+      width: 100%;
+      padding: var(--space-4);
+      font-size: var(--text-base);
+      font-weight: 700;
+      border-radius: var(--radius-lg);
+      background: var(--color-primary);
+      color: var(--color-primary-text);
+      border: none;
+      transition: background var(--transition-interactive);
+    }
+    .start-quiz-btn:hover { background: var(--color-primary-hover); }
+
+    .quiz-active { display: flex; flex-direction: column; gap: var(--space-5); }
+    .quiz-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-3) var(--space-5);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+    .quiz-progress-text {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    .quiz-score {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    .quiz-timer {
+      font-size: var(--text-sm);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      color: var(--color-primary);
+      background: var(--color-primary-highlight);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+    }
+    .quiz-timer.warning { color: var(--color-gold); background: var(--color-gold-highlight); }
+    .quiz-timer.danger { color: var(--color-error); background: var(--color-error-highlight); }
+
+    .quiz-q-bar {
+      height: 4px;
+      background: var(--color-border);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    .quiz-q-fill {
+      height: 100%;
+      background: var(--color-primary);
+      border-radius: var(--radius-full);
+      transition: width 300ms ease;
+    }
+
+    .question-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+    }
+    .question-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+    .q-topic-tag {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: var(--color-primary-highlight);
+      color: var(--color-primary);
+    }
+    .q-trick-tag {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: var(--color-gold-highlight);
+      color: var(--color-gold);
+    }
+    .question-num {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-left: auto;
+    }
+    .question-text {
+      font-size: var(--text-base);
+      color: var(--color-text);
+      line-height: 1.65;
+      margin-bottom: var(--space-5);
+      font-weight: 500;
+    }
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .option-btn {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      text-align: left;
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      transition: all var(--transition-interactive);
+      cursor: pointer;
+    }
+    .option-btn:hover:not(:disabled) { border-color: var(--color-primary); background: var(--color-primary-highlight); }
+    .option-btn.selected { border-color: var(--color-primary); background: var(--color-primary-highlight); }
+    .option-btn.correct { border-color: var(--color-success); background: var(--color-success-highlight); color: var(--color-success); }
+    .option-btn.incorrect { border-color: var(--color-error); background: var(--color-error-highlight); color: var(--color-error); }
+    .option-btn.correct-answer { border-color: var(--color-success); background: var(--color-success-highlight); }
+    .option-btn:disabled { cursor: default; }
+    .option-letter {
+      font-weight: 700;
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      min-width: 20px;
+      flex-shrink: 0;
+    }
+    .option-btn.selected .option-letter,
+    .option-btn.correct .option-letter { color: inherit; }
+
+    .explanation-box {
+      margin-top: var(--space-5);
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface-offset);
+      border-left: 4px solid var(--color-primary);
+      display: none;
+    }
+    .explanation-box.show { display: block; }
+    .explanation-title {
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: var(--space-2);
+    }
+    .explanation-text {
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      line-height: 1.65;
+    }
+    .trick-alert {
+      margin-top: var(--space-3);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-md);
+      background: var(--color-gold-highlight);
+      border: 1px solid var(--color-gold);
+      font-size: var(--text-sm);
+      color: var(--color-gold);
+      font-weight: 600;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+    }
+
+    .quiz-next-btn {
+      width: 100%;
+      padding: var(--space-3);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      border-radius: var(--radius-lg);
+      background: var(--color-primary);
+      color: var(--color-primary-text);
+      border: none;
+      display: none;
+    }
+    .quiz-next-btn.show { display: block; }
+    .quiz-next-btn:hover { background: var(--color-primary-hover); }
+
+    /* QUIZ RESULTS */
+    .quiz-results {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      text-align: center;
+    }
+    .results-score-ring {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto var(--space-5);
+      position: relative;
+    }
+    .results-score-ring svg { transform: rotate(-90deg); }
+    .results-score-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .results-score-num {
+      font-size: var(--text-lg);
+      font-weight: 800;
+      color: var(--color-text);
+      line-height: 1;
+    }
+    .results-score-denom {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+    .results-verdict {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+    }
+    .results-verdict.pass { color: var(--color-success); }
+    .results-verdict.fail { color: var(--color-error); }
+    .results-detail {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-6);
+    }
+    .results-breakdown {
+      background: var(--color-surface-2);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      margin-bottom: var(--space-6);
+      text-align: left;
+    }
+    .results-breakdown-title {
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: var(--space-4);
+    }
+    .results-topic-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-2) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .results-topic-row:last-child { border-bottom: none; }
+    .results-topic-name { flex: 1; font-size: var(--text-xs); color: var(--color-text); }
+    .results-topic-stat { font-size: var(--text-xs); font-weight: 600; color: var(--color-text-muted); }
+    .results-actions { display: flex; gap: var(--space-3); justify-content: center; }
+    .results-retry-btn {
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-full);
+      background: var(--color-primary);
+      color: var(--color-primary-text);
+      font-weight: 700;
+      font-size: var(--text-sm);
+    }
+    .results-retry-btn:hover { background: var(--color-primary-hover); }
+    .results-review-btn {
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-full);
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      font-weight: 600;
+      font-size: var(--text-sm);
+      border: 1px solid var(--color-border);
+    }
+    .results-review-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+
+    /* ===== KEY NUMBERS ===== */
+    .key-numbers-container { max-width: 900px; }
+    .kn-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-4);
+    }
+    .kn-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      border-left: 4px solid var(--color-primary);
+      transition: border-color var(--transition-interactive), transform var(--transition-interactive);
+    }
+    .kn-card:hover { border-left-color: var(--color-gold); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+    .kn-card.gold { border-left-color: var(--color-gold); }
+    .kn-card.error { border-left-color: var(--color-error); }
+    .kn-number {
+      font-size: var(--text-lg);
+      font-weight: 800;
+      color: var(--color-primary);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: var(--space-1);
+      line-height: 1.2;
+    }
+    .kn-card.gold .kn-number { color: var(--color-gold); }
+    .kn-card.error .kn-number { color: var(--color-error); }
+    .kn-label {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: var(--space-1);
+    }
+    .kn-desc {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+    .kn-section-title {
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: var(--space-4);
+      margin-top: var(--space-6);
+      padding-bottom: var(--space-2);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .kn-section-title:first-child { margin-top: 0; }
+
+    /* ===== TRICK PATTERNS ===== */
+    .tricks-container { max-width: 800px; }
+    .trick-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      margin-bottom: var(--space-4);
+    }
+    .trick-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+      cursor: pointer;
+    }
+    .trick-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--color-gold-highlight);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .trick-heading {
+      flex: 1;
+    }
+    .trick-title {
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--color-gold);
+      margin-bottom: var(--space-1);
+    }
+    .trick-subtitle {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    .trick-body {
+      padding-left: calc(40px + var(--space-4));
+    }
+    .trick-example {
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      margin-bottom: var(--space-3);
+    }
+    .trick-example-label {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-2);
+    }
+    .trick-example-text {
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    .trick-example-text mark {
+      background: var(--color-gold-highlight);
+      color: var(--color-gold);
+      padding: 0 3px;
+      border-radius: 2px;
+    }
+    .trick-tip {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .trick-tip strong { color: var(--color-primary); }
+
+    /* ===== OVERVIEW / HOME ===== */
+    .overview-container { max-width: 900px; }
+    .overview-hero {
+      background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-2) 100%);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      margin-bottom: var(--space-6);
+      position: relative;
+      overflow: hidden;
+    }
+    .overview-hero::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, color-mix(in srgb, var(--color-primary) 15%, transparent), transparent 70%);
+      pointer-events: none;
+    }
+    .overview-eyebrow {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-primary);
+      margin-bottom: var(--space-2);
+    }
+    .overview-h1 {
+      font-size: var(--text-xl);
+      font-weight: 800;
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
+      line-height: 1.2;
+    }
+    .overview-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      max-width: 60ch;
+      margin-bottom: var(--space-5);
+    }
+    .overview-stats {
+      display: flex;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .ov-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .ov-stat-num {
+      font-size: var(--text-lg);
+      font-weight: 800;
+      color: var(--color-primary);
+    }
+    .ov-stat-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+    .ov-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5);
+      cursor: pointer;
+      transition: all var(--transition-interactive);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .ov-card:hover {
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .ov-card-icon {
+      width: 44px; height: 44px;
+      border-radius: var(--radius-lg);
+      background: var(--color-primary-highlight);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .ov-card.gold .ov-card-icon { background: var(--color-gold-highlight); }
+    .ov-card.success .ov-card-icon { background: var(--color-success-highlight); }
+    .ov-card.error .ov-card-icon { background: var(--color-error-highlight); }
+    .ov-card-title {
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--color-text);
+    }
+    .ov-card-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+    .ov-card-action {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-top: auto;
+    }
+    .ov-card.gold .ov-card-action { color: var(--color-gold); }
+
+    /* ===== MOBILE ===== */
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 90;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        left: 0; top: 0; bottom: 0;
+        transform: translateX(-100%);
+        width: 280px !important;
+        min-width: 280px !important;
+        transition: transform 300ms ease;
+        z-index: 100;
+      }
+      .sidebar.mobile-open {
+        transform: translateX(0);
+      }
+      .mobile-overlay.show { display: block; }
+      .view-area { padding: var(--space-4); }
+      .topbar { padding: var(--space-3) var(--space-4); }
+    }
+
+    /* ===== REFERENCE TABLES ===== */
+    .ref-tables-container {
+      max-width: var(--content-wide);
+      margin: 0 auto;
+    }
+    .ref-tab-bar {
+      display: flex;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .ref-tab-btn {
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition-interactive);
+    }
+    .ref-tab-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-text);
+    }
+    .ref-tab-btn.active {
+      background: var(--color-primary);
+      color: var(--color-primary-text);
+      border-color: var(--color-primary);
+      font-weight: 600;
+    }
+    .ref-tab-panel {
+      display: none;
+    }
+    .ref-tab-panel.active {
+      display: block;
+    }
+    .ref-table-wrap {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .ref-table-scroll {
+      overflow-x: auto;
+      overflow-y: auto;
+    }
+    .ref-table-scroll.scrollable {
+      max-height: 520px;
+    }
+    .ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--text-sm);
+      font-family: var(--font-body);
+    }
+    .ref-table thead {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    .ref-table thead th {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      font-weight: 600;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      white-space: nowrap;
+      border-bottom: 2px solid var(--color-border);
+    }
+    .ref-table tbody tr {
+      transition: background var(--transition-interactive);
+    }
+    .ref-table tbody tr:nth-child(odd) {
+      background: var(--color-surface);
+    }
+    .ref-table tbody tr:nth-child(even) {
+      background: var(--color-surface-2);
+    }
+    .ref-table tbody tr:hover {
+      background: var(--color-surface-dynamic);
+    }
+    .ref-table tbody tr.hidden-row {
+      display: none;
+    }
+    .ref-table td {
+      padding: var(--space-3) var(--space-4);
+      color: var(--color-text);
+      border-bottom: 1px solid var(--color-divider);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .ref-table td:first-child {
+      max-width: 340px;
+    }
+    .ref-risk-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .ref-risk-tag.lowest { background: #0d2b18; color: #22c55e; }
+    .ref-risk-tag.low { background: #0d2b18; color: #4ade80; }
+    .ref-risk-tag.medium { background: #2d1e06; color: #f59e0b; }
+    .ref-risk-tag.high { background: #2d1206; color: #fb923c; }
+    .ref-risk-tag.higher { background: #2d0a15; color: #f43f5e; }
+    .ref-risk-tag.highest { background: #2d0a15; color: #ef4444; }
+    .ref-topic-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      background: var(--color-primary-highlight);
+      color: var(--color-primary);
+      white-space: nowrap;
+    }
+    .ref-notes-box {
+      margin-top: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+    }
+    .ref-notes-box h4 {
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--color-gold);
+      margin-bottom: var(--space-3);
+    }
+    .ref-notes-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .ref-notes-box li {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      padding-left: var(--space-4);
+      position: relative;
+      line-height: 1.6;
+    }
+    .ref-notes-box li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--color-gold);
+    }
+    .ref-filter-bar {
+      display: flex;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .ref-filter-btn {
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      background: transparent;
+      color: var(--color-text-muted);
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      cursor: pointer;
+      transition: all var(--transition-interactive);
+      white-space: nowrap;
+    }
+    .ref-filter-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-text);
+    }
+    .ref-filter-btn.active {
+      background: var(--color-primary-highlight);
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+    .ref-search-input {
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      width: 100%;
+      max-width: 320px;
+      outline: none;
+      transition: border-color var(--transition-interactive);
+    }
+    .ref-search-input::placeholder {
+      color: var(--color-text-faint);
+    }
+    .ref-search-input:focus {
+      border-color: var(--color-primary);
+    }
+    .ref-table-count {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      margin-left: auto;
+    }
+    @media (max-width: 768px) {
+      .ref-table td, .ref-table th {
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--text-xs);
+      }
+      .ref-table td:first-child {
+        max-width: 200px;
+      }
+      .ref-filter-bar {
+        gap: var(--space-1);
+      }
+      .ref-search-input {
+        max-width: 100%;
+      }
+      .ref-table-scroll.scrollable {
+        max-height: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="app-wrapper">
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="HKSI P2 Study Tool">
+        <rect width="32" height="32" rx="8" fill="#14b8a6" fill-opacity="0.15"/>
+        <path d="M7 8h4v7h8V8h4v16h-4v-6H11v6H7V8z" fill="#14b8a6"/>
+        <path d="M22 22l3 3" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="23.5" cy="20.5" r="3.5" stroke="#f59e0b" stroke-width="1.5" fill="none"/>
+      </svg>
+    </div>
+    <div>
+      <div class="sidebar-title">HKSI Paper 2</div>
+      <div class="sidebar-sub">Regulation of Securities</div>
+    </div>
+  </div>
+
+  <div class="sidebar-modes">
+    <button class="mode-btn active" data-mode="overview" onclick="switchMode('overview')">Home</button>
+    <button class="mode-btn" data-mode="mindmap" onclick="switchMode('mindmap')">Notes</button>
+    <button class="mode-btn" data-mode="quiz" onclick="switchMode('quiz')">Quiz</button>
+    <button class="mode-btn" data-mode="flashcard" onclick="switchMode('flashcard')">Cards</button>
+  </div>
+  <div style="display:flex;gap:var(--space-1);padding:0 var(--space-4) var(--space-2);">
+    <button class="mode-btn" data-mode="numbers" onclick="switchMode('numbers')" style="font-size:10px;padding:4px 6px;">🔢 Numbers</button>
+    <button class="mode-btn" data-mode="tricks" onclick="switchMode('tricks')" style="font-size:10px;padding:4px 6px;">⚡ Tricks</button>
+    <button class="mode-btn" data-mode="tables" onclick="switchMode('tables')" style="font-size:10px;padding:4px 6px;">📊 Tables</button>
+  </div>
+
+  <nav class="sidebar-topics" id="sidebarTopics">
+    <!-- Topics rendered by JS -->
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="progress-summary" id="progressSummary">Loading...</div>
+    <button class="theme-toggle" id="themeToggle" data-theme-toggle aria-label="Switch theme" title="Toggle light/dark mode">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main-content" id="mainContent">
+  <div class="topbar" id="topbar">
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <span class="topbar-title" id="topbarTitle">HKSI Paper 2 — Study Tool</span>
+    <span class="topbar-badge" id="topbarBadge">40 MCQ · 60 min · 70% pass</span>
+  </div>
+
+  <div class="view-area" id="viewArea">
+    <!-- Content rendered by JS -->
+  </div>
+</main>
+</div>
+<script>
+// ===== TOPIC DATA =====
+const TOPICS = [
+  {
+    id: 1,
+    title: "Regulatory Framework",
+    weight: 15,
+    desc: "Companies Ordinance, SFC structure, exclusions from regulated activities",
+    nodes: [
+      {
+        label: "Resolutions — Companies Ordinance",
+        children: [
+          { label: "Ordinary resolutions: simple majority, no specific form required" },
+          { label: "Resolutions by circularization: allowed EXCEPT removal of auditor before term expiry, removal of director before term expiry" },
+          { label: "Special resolution: 75%+ majority, 14 days notice, required for: reduction of share capital, voluntary winding up, alteration of memorandum/articles" },
+          { label: "Printed copy of special resolution must be lodged with Registrar of Companies within 15 days" }
+        ]
+      },
+      {
+        label: "SFC Structure & Advisory Committee",
+        children: [
+          { label: "SFC Advisory Committee: advises on policy matters concerning regulatory objectives and functions" },
+          { label: "Advisory Committee has NO executive powers and does NOT police the SFC" },
+          { label: "Chaired by the SFC Chairman" }
+        ]
+      },
+      {
+        label: "Exclusions from Regulated Activities",
+        tag: "EXAM",
+        children: [
+          { label: "Professional accountants, solicitors, counsel: Types 4, 5, 6, 9 wholly incidental to profession" },
+          { label: "Trust companies: Types 4, 5, 6, 9 wholly incidental to trustee duties" },
+          { label: "Type 9 licensees: can carry out Types 1, 2, 4, 5 solely for Type 9 activity" },
+          { label: "Corporations: Types 4, 5, 6, 9 for wholly owned subsidiaries/holding companies" }
+        ]
+      },
+      {
+        label: "Types of Regulated Activities",
+        children: [
+          { label: "Type 1: Dealing in securities" },
+          { label: "Type 2: Dealing in futures contracts" },
+          { label: "Type 4: Advising on securities" },
+          { label: "Type 5: Advising on futures contracts" },
+          { label: "Type 6: Advising on corporate finance" },
+          { label: "Type 8: Securities margin financing" },
+          { label: "Type 9: Asset management" }
+        ]
+      },
+      {
+        label: "Licensed vs Registered Persons",
+        tag: "TRICK",
+        children: [
+          { label: "Licensed Corporation (LC): licensed by SFC to conduct regulated activities" },
+          { label: "Registered Institution (RI): bank registered with SFC under SFO (regulated by HKMA as AFI)" },
+          { label: "Responsible Officer (RO): for licensed corporations" },
+          { label: "Executive Officer (EO): for registered institutions — KEY DISTINCTION" },
+          { label: "RIs are Authorized Financial Institutions (AFIs) under HKMA — both RIs and AIs are AFIs" }
+        ]
+      },
+      {
+        label: "Licensing Requirements",
+        children: [
+          { label: "Representative: individual conducting regulated activity for a licensed corporation" },
+          { label: "Responsible Officer: approved by SFC to supervise regulated activity of LC; must be fit and proper" },
+          { label: "LC must have at least 2 ROs for each regulated activity, at least 1 must be executive director" },
+          { label: "Advertisement: LC must submit to SFC before issue unless authorized CIS or exemption applies" }
+        ]
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: "Requirements of Relevant Subsidiary Legislation",
+    weight: 20,
+    desc: "Financial resources, client securities/money rules, investor compensation",
+    nodes: [
+      {
+        label: "Financial Resources Requirements",
+        tag: "NUMBERS",
+        children: [
+          { label: "Paid-up share capital: highest requirement applies if multiple activities licensed" },
+          { label: "Dealing in securities (with margin): HK$10m paid-up, HK$3m liquid capital" },
+          { label: "Dealing in securities (no margin): HK$5m paid-up, HK$3m liquid capital" },
+          { label: "Advising on securities (holding client assets): HK$5m paid-up, HK$3m LC" },
+          { label: "Advising on securities (not holding client assets): HK$100,000 paid-up, no LC req" },
+          { label: "Securities margin financing: HK$10m paid-up, HK$3m LC" },
+          { label: "Approved Introducing Agent (AIA): no paid-up requirement, HK$500,000 LC" },
+          { label: "Breach with intent to defraud: HK$1m fine + 7 years imprisonment" }
+        ]
+      },
+      {
+        label: "Client Securities Rules",
+        children: [
+          { label: "Applies to: securities listed on SEHK; interests in SFC-authorized CIS; received/held in HK by intermediary" },
+          { label: "Does NOT apply to: securities held outside HK, securities moved outside HK, client-held bank accounts" },
+          { label: "Professional investor securities ARE covered" },
+          { label: "Client Authority required before withdrawing/dealing: specific client direction OR standing authority" }
+        ]
+      },
+      {
+        label: "Standing Authority",
+        tag: "NUMBERS",
+        children: [
+          { label: "Max period: 12 months" },
+          { label: "Renewable: yes, on written request of client" },
+          { label: "Deemed renewal: after 14 days notice to client, before expiry" },
+          { label: "Confirmation of deemed renewal: within 1 week after expiry" },
+          { label: "Professional Investors: no time limit on renewal" }
+        ]
+      },
+      {
+        label: "Client Money Rules",
+        tag: "NUMBERS",
+        children: [
+          { label: "Applies to: LCs and their associated entities for client money in HK" },
+          { label: "Does NOT apply to: Registered Institutions conducting Type 1 activity" },
+          { label: "Segregated account: designated trust/client account with AFI or SFC-approved person" },
+          { label: "Timeline: within 1 business day of receiving money, must pay into segregated account, return to client, or per written direction/standing authority" },
+          { label: "Non-client money in segregated account: must remove within 1 business day of becoming aware" }
+        ]
+      },
+      {
+        label: "Investor Compensation Fund",
+        tag: "NUMBERS",
+        children: [
+          { label: "Managed by: Investor Compensation Company (ICC), independent body regulated by SFC" },
+          { label: "Levy: 0.002% per side (currently suspended)" },
+          { label: "Levy collected by SEHK on behalf of ICC" },
+          { label: "Default defined as: bankruptcy/winding up, OR breach of trust/defalcation/fraud/misfeasance" },
+          { label: "NOT covered: A-shares via Shanghai-HK Stock Connect" },
+          { label: "Max compensation — Securities: HK$500,000 per claimant" },
+          { label: "Max compensation — Combined securities + futures: HK$1,000,000 per claimant" },
+          { label: "Institutional investors: NOT entitled to claim — retail investors only" }
+        ]
+      },
+      {
+        label: "Margin — Non-Centrally Cleared OTC Derivatives",
+        tag: "EXAM",
+        children: [
+          { label: "Acceptable margin: cash, government bonds, highly rated debt securities" },
+          { label: "NOT acceptable: equity shares of companies in the same group (HK listed) — concentration risk" },
+          { label: "Margin must be independent and liquid to be effective collateral" }
+        ]
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "Management and Supervision of Securities Businesses",
+    weight: 20,
+    desc: "Code of Conduct, risk management, AML/CFT, client obligations",
+    nodes: [
+      {
+        label: "Management Liability",
+        tag: "EXAM",
+        children: [
+          { label: "ROs/EOs/senior management: liable where they consented, connived, or were neglectful" },
+          { label: "Discharge available: if officer honestly and reasonably believed failure would not occur" },
+          { label: "Code of Conduct: primary responsibility for standards lies with senior management" }
+        ]
+      },
+      {
+        label: "Code of Conduct — Key Principles",
+        children: [
+          { label: "Honesty and fairness" },
+          { label: "Diligence: prompt execution, best execution, prompt/fair allocation" },
+          { label: "Time-stamp all orders on receipt" },
+          { label: "Telephone recordings: kept at least 6 months" },
+          { label: "Mobile phones: discouraged but not banned; record time and details immediately" },
+          { label: "Gifts: only discount on fees/charges permitted when promoting investment product" }
+        ]
+      },
+      {
+        label: "Know Your Client (KYC)",
+        children: [
+          { label: "Must establish: true/full identity, financial situation, investment experience, investment objectives" },
+          { label: "Before executing: establish identity of person ultimately responsible for originating transaction (except CIS)" },
+          { label: "SFC Client Identity Rule: provide identity of ultimate client to SFC within 2 business days of request" },
+          { label: "Suitability obligation: primary obligation rests with licensed/registered person, not client" }
+        ]
+      },
+      {
+        label: "Options Client Agreement",
+        children: [
+          { label: "Required for all registered persons in exchange-traded options business" },
+          { label: "Must include: client identity disclosure, margin agreement, indemnity clause, right to compensation fund" },
+          { label: "Registered person must: maintain confidentiality, provide product specifications, notify of material changes" }
+        ]
+      },
+      {
+        label: "Risk Management Techniques",
+        children: [
+          {
+            label: "Credit Risk",
+            children: [
+              { label: "Evaluate client/counterparty creditworthiness" },
+              { label: "Set appropriate credit limits" },
+              { label: "Check: credit rating, payment record, capital base, known adverse events" },
+              { label: "Haircuts on market value of securities pledged as collateral" }
+            ]
+          },
+          {
+            label: "Market Risk",
+            children: [
+              { label: "Restrict instruments that can be traded" },
+              { label: "Trading and position limits on proprietary trading" },
+              { label: "Value at Risk (VaR), sensitivity checks, stress testing" }
+            ]
+          },
+          {
+            label: "Liquidity Risk",
+            children: [
+              { label: "Set concentration limits for products/markets/counterparties" },
+              { label: "Measure timing mismatches in receipts/payables" }
+            ]
+          },
+          {
+            label: "Operational Risk",
+            children: [
+              { label: "Segregation of duties" },
+              { label: "Secure and up-to-date records" },
+              { label: "Business continuity and disaster recovery plan" }
+            ]
+          }
+        ]
+      },
+      {
+        label: "AML/CFT — Drug Trafficking Ordinance",
+        children: [
+          { label: "Offence: deal with property known/believed to be proceeds of drug trafficking" },
+          { label: "Report to: police officer, customs officer, or Joint Financial Intelligence Unit (JFIU)" },
+          { label: "Tipping off offence: disclose to another person that a report has been made" },
+          { label: "Disclosure exemption: person making disclosure is excused from resulting breach of contract/professional obligation" }
+        ]
+      },
+      {
+        label: "Unsolicited Calls (Cold Calls)",
+        tag: "NUMBERS",
+        children: [
+          { label: "Offence during unsolicited call: offer to make agreements to buy/sell SFC-regulated financial products, offer SMF, offer returns from dealing" },
+          { label: "Exempt parties: existing clients, licensed persons, registered institutions, professional investors, solicitors/accountants in professional capacity, money lenders" },
+          { label: "Does NOT apply to: agreements to buy/sell securities from person who already holds such securities" },
+          { label: "Rescission period: 28 days from entering agreement, OR 7 days from discovering contravention, whichever is earlier" }
+        ]
+      },
+      {
+        label: "Improper Practices",
+        children: [
+          { label: "Boiler room: high pressure tactics, promise of very high returns, telephone/email only, seller overseas" },
+          { label: "Churning: excessive trading to generate commissions" },
+          { label: "Front running: trading before executing client order" },
+          { label: "Rat trading: unauthorized personal dealing using knowledge of client orders" },
+          { label: "Unsuitability: recommending products not suitable for client's circumstances" },
+          { label: "Unauthorized trades: executing transactions without client instruction" }
+        ]
+      },
+      {
+        label: "Virtual Assets",
+        children: [
+          { label: "LC planning virtual asset management activity: must notify SFC as it constitutes a 'significant change' in business" },
+          { label: "SFC has specific licensing regime for virtual asset service providers" }
+        ]
+      }
+    ]
+  },
+  {
+    id: 4,
+    title: "Dealing in Securities Traded on SEHK",
+    weight: 20,
+    desc: "HKEx structure, trading, clearing, settlement, transaction costs",
+    nodes: [
+      {
+        label: "HKEx Structure",
+        children: [
+          { label: "HKEx: listed company on SEHK, exchange controller under SFO" },
+          { label: "SFC regulates intermediaries — NOT the exchanges" },
+          { label: "Two exchanges: SEHK (Main Board + GEM), HKFE (futures)" },
+          { label: "Four clearing houses: HKSCC (cash/CCASS), SEOCH (options), HKCC (futures), OTC Clear (OTC derivatives, 84.14% owned by HKEx)" }
+        ]
+      },
+      {
+        label: "Exchange Participants",
+        children: [
+          { label: "Must: be of good financial standing and integrity" },
+          { label: "Must: hold at least one stock exchange trading right" },
+          { label: "Must: be licensed for Type 1 activity" },
+          { label: "Must: be a corporation limited by shares incorporated in HK" },
+          { label: "Trading rights: NON-transferable since 2010" },
+          { label: "Exchange participantship: NOT transferable" },
+          { label: "HKEx membership: no longer required to trade or clear" }
+        ]
+      },
+      {
+        label: "Equity Securities — Types",
+        children: [
+          { label: "Ordinary shares and preference shares" },
+          { label: "H-shares: PRC companies approved by CSRC for HK listing" },
+          { label: "Red Chip: Mainland China entities hold >30% as single largest shareholder, OR >20% with strong influential Mainland board presence" },
+          { label: "GEM: growth companies with lower listing requirements, no track record required" },
+          { label: "US securities pilot programme: NASDAQ/AMEX listed, no HK public offering, regulated by SEHK rules" }
+        ]
+      },
+      {
+        label: "Structured Products",
+        tag: "NUMBERS",
+        children: [
+          { label: "Equity Warrants: right to subscribe for equity securities; min 1 year, max 5 years term; US style = exercise any time; European style = only at maturity" },
+          { label: "Derivative Warrants: issued by party independent of underlying company; mostly cash-settled; can be calls or puts; may be over currencies, commodities" }
+        ]
+      },
+      {
+        label: "OTP-C Trading System",
+        children: [
+          { label: "Orion Trading Platform (OTP-C): order-driven system, auto-matching" },
+          { label: "NOT auto-matched: odd lot transactions, cross trades, buy-in isolated trades, orders over max size, intentionally concluded outside OTP-C" }
+        ]
+      },
+      {
+        label: "CCASS Settlement Timeline",
+        tag: "NUMBERS",
+        children: [
+          { label: "T (trading day): trade data transferred to CCASS, provisional clearing statements after 5pm (options: after 8pm)" },
+          { label: "T+1: final clearing statements after 2pm; Continuous Net Settlement (CNS) netting; HKSCC guarantees both sides via novation" },
+          { label: "T+2: SEHK trades settled by electronic debit/credit to stock accounts" },
+          { label: "T+3: money settlement; compulsory buy-in if insufficient stock" }
+        ]
+      },
+      {
+        label: "Transaction Costs",
+        tag: "NUMBERS",
+        children: [
+          { label: "Commission (brokerage): freely negotiable; IPO brokerage: 1% of application money" },
+          { label: "Trading fee: 0.00565% per side payable to SEHK" },
+          { label: "SFC Transaction levy: 0.0027% per side payable to SFC" },
+          { label: "AFRC Transaction levy: 0.00015% per side payable to AFRC" },
+          { label: "Stamp duty: 0.1% (round UP to nearest dollar) per side; EXEMPT: ETFs, derivative warrants, CBBCs" },
+          { label: "Transfer deed stamp duty: HK$5.00 per deed (paid by seller/registered holder)" },
+          { label: "Transfer fee: HK$2.50 per certificate (paid by buyer, to registrar)" }
+        ]
+      },
+      {
+        label: "Short Selling",
+        children: [
+          { label: "General rule: must have presently exercisable and unconditional right to vest securities in buyer" },
+          { label: "Covered short sale: satisfies general rule — legal" },
+          { label: "Naked short sale: does not satisfy general rule — OFFENCE" },
+          { label: "Must be in SEHK-designated securities only" },
+          { label: "Tick rule: cannot sell below best current ask price" },
+          { label: "Must make stock borrowing arrangements before the short sale" }
+        ]
+      },
+      {
+        label: "Price Volatility Control (POS/CAS)",
+        tag: "EXAM",
+        children: [
+          { label: "POS = Pre-Opening Session; CAS = Closing Auction Session" },
+          { label: "Applicable products: exchange-traded funds (ETFs) and stocks (both Main Board and GEM)" },
+          { label: "NOT applicable to: derivative warrants, CBBCs — these have their own mechanisms" }
+        ]
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: "Other Securities Activities",
+    weight: 10,
+    desc: "AIA, securities margin financing, advising on securities, ALP",
+    nodes: [
+      {
+        label: "Approved Introducing Agent (AIA)",
+        tag: "NUMBERS",
+        children: [
+          { label: "Definition: only receives and passes on client trades / introduces clients to SEHK participant" },
+          { label: "Does NOT handle client assets; incurs NO legal liability on introduced business" },
+          { label: "Capital: no paid-up share capital requirement" },
+          { label: "Liquid capital: HK$500,000 (lower due to lower risk)" },
+          { label: "Exemptions: no need to comply with client securities/money rules; no contract notes; no ICF contributions" }
+        ]
+      },
+      {
+        label: "Securities Margin Financing (SMF)",
+        children: [
+          { label: "Type 8 license required to provide financial accommodation to facilitate acquisition/holding of listed securities" },
+          { label: "Exempt from Type 8: underwriting, Type 1 licensee financing own clients, CIS issuer, AFIs for their clients, individual >10% shareholder, AIA introducing to related corporation" },
+          { label: "Margin = portion of purchase cost deposited by investor" },
+          { label: "Increases purchasing power and leverage" }
+        ]
+      },
+      {
+        label: "Advising on Securities (Type 4)",
+        children: [
+          { label: "Definition: giving advice, issuing analyses/reports enabling clients to make buy/sell decisions" },
+          { label: "Exempt: solicitors, counsel, accountants, trust companies, Type 9 licensees (wholly incidental)" },
+          { label: "Exempt: financial journalists and broadcasters" },
+          { label: "Exempt: Type 1/2 licensees if wholly incidental to dealing activities" },
+          { label: "NOT exempt: corporate finance advisers (need Type 6), asset managers (need Type 9)" }
+        ]
+      },
+      {
+        label: "Alternative Liquidity Pools (ALP)",
+        children: [
+          { label: "Electronic system operated by LC/RI for crossing/matching orders involving HK and overseas listed securities" },
+          { label: "Code of Conduct applies to ALP operators" },
+          { label: "Must have: at least one RO/EO responsible for ALP management; controls for risks; formal governance; defined reporting lines" },
+          { label: "Client orders must have PRIORITY over proprietary orders" },
+          { label: "Only qualified investors can become ALP users" }
+        ]
+      }
+    ]
+  },
+  {
+    id: 6,
+    title: "Exchange Traded Options and OTC Derivatives",
+    weight: 10,
+    desc: "HKATS, SEOCH, OTC derivatives requirements, independent risk functions",
+    nodes: [
+      {
+        label: "Options Trading & Clearing Systems",
+        children: [
+          { label: "HKATS: transaction-based network, orders into Central Orderbook, price/time priority matching" },
+          { label: "DCASS: common platform for clearing/settlement of SEHK traded options, HKFE index futures/options, single stock futures/options" },
+          { label: "SEOCH: clearing house for options; counterparty for all trades; guarantor of money settlement and stock delivery" }
+        ]
+      },
+      {
+        label: "SEOCH Participants",
+        tag: "NUMBERS",
+        children: [
+          { label: "Direct Clearing Participant (DCP): clears for own and clients' accounts" },
+          { label: "General Clearing Participant (GCP): clears for own, clients', AND other Trading Participants' accounts" },
+          { label: "DCP liquid capital requirement: HK$5 million" },
+          { label: "GCP liquid capital requirement: HK$20 million" },
+          { label: "DCP reserve fund contribution: HK$1.5 million" },
+          { label: "GCP reserve fund contribution: HK$5 million" },
+          { label: "All participants must: be Type 1 licensed, be in good standing, have appropriate procedures" }
+        ]
+      },
+      {
+        label: "Options Exchange Participants",
+        children: [
+          { label: "Trading Participant: must be EP and Type 1 licensed; be SEOCH DCP or GCP or have clearing agreement; have HKATS hardware/software; have constant HKATS access" },
+          { label: "Broker Participant: must be EP and Type 1 licensed; have exclusive options broking agreement with one Trading Participant (SEOCH DCP or GCP)" }
+        ]
+      },
+      {
+        label: "OTC Derivatives — Risk Management Requirements",
+        children: [
+          { label: "Framework: clear policies overseen by board or senior management" },
+          { label: "Independent market risk management: monitor risk limits, approve pricing/valuation models (mark-to-market)" },
+          { label: "Independent credit risk management: set/monitor credit limits; review leverage, concentration, risk reduction" },
+          { label: "Risk reduction techniques: master agreements, netting, collateralisation, third-party credit enhancements (letters of credit, guarantees), contingency planning" },
+          { label: "Valuations: daily using acceptable pricing methodology (NOT proprietary methodology)" },
+          { label: "OTC derivatives reporting exemption: 3-month grace period to report once exemption ceases" }
+        ]
+      },
+      {
+        label: "Independent Credit Risk Management (OTC)",
+        children: [
+          { label: "Must be independent function — not combined with sales" },
+          { label: "No trader may deal with client without credit assessment and credit limit being set" },
+          { label: "Exceeding credit limit without senior management approval = breach of in-house procedures" },
+          { label: "Master agreements with standard terms required for clarity over jurisdiction" }
+        ]
+      },
+      {
+        label: "Margin — OTC Derivatives (Non-Centrally Cleared)",
+        tag: "EXAM",
+        children: [
+          { label: "Eligible collateral: cash, government bonds, highly rated debt" },
+          { label: "NOT eligible: equity shares of companies in the same group as the counterparty — this creates concentration/correlation risk" }
+        ]
+      }
+    ]
+  },
+  {
+    id: 7,
+    title: "Market Misconduct and Offences",
+    weight: 5,
+    desc: "Six categories of market misconduct, MMT, insider dealing, disclosure",
+    nodes: [
+      {
+        label: "Six Categories of Market Misconduct",
+        tag: "EXAM",
+        children: [
+          { label: "1. Insider dealing" },
+          { label: "2. False trading" },
+          { label: "3. Price rigging" },
+          { label: "4. Disclosure of information about prohibited transactions" },
+          { label: "5. Disclosure of false or misleading information inducing transactions" },
+          { label: "6. Stock market manipulation" },
+          { label: "Legal proceedings: EITHER criminal courts OR MMT (civil) — NOT both" }
+        ]
+      },
+      {
+        label: "Market Misconduct Tribunal (MMT)",
+        tag: "NUMBERS",
+        children: [
+          { label: "Composition: chaired by a judge + 2 non-public officer members, all appointed by Chief Executive" },
+          { label: "Standard of proof: balance of probabilities (civil standard)" },
+          { label: "Appeals: to Court of Appeal; subject to judicial review" },
+          { label: "Disqualification: up to 5 years from being director, liquidator, receiver, or manager" },
+          { label: "Cold shoulder order: prohibition on investing/trading in HK markets for up to 5 years" },
+          { label: "Also: payment of profits + compound interest to Government; costs; disciplinary referrals" }
+        ]
+      },
+      {
+        label: "Jurisdiction of Market Misconduct",
+        tag: "EXAM",
+        children: [
+          { label: "Conduct IN HK related to HK market securities = misconduct" },
+          { label: "Conduct IN HK related to OVERSEAS market securities = misconduct" },
+          { label: "Conduct OVERSEAS related to HK market securities = misconduct" },
+          { label: "Conduct OVERSEAS related to OVERSEAS securities = NOT HK market misconduct" }
+        ]
+      },
+      {
+        label: "Insider Dealing",
+        children: [
+          { label: "Involves dealing in listed securities using information not publicly available" },
+          { label: "Example: director selling shares before announcement of related party bankruptcy" },
+          { label: "Finance director dealing using inside info about connected company = insider dealing" }
+        ]
+      },
+      {
+        label: "Disclosure of Inside Information — Listed Companies",
+        tag: "NUMBERS",
+        children: [
+          { label: "Must disclose: as soon as reasonably practicable after information comes to knowledge" },
+          { label: "Knowledge: if officer, in course of duties, has knowledge; or if reasonable officer would consider it inside info" },
+          { label: "Exemptions: prohibited by enactment/court order; information concerns incomplete proposal and confidentiality maintained; trade secret; SFC waiver" },
+          { label: "Breach: officer liable if intentional, reckless, or negligent" },
+          { label: "Penalty: regulatory fine up to HK$8 million and/or other sanctions on listed corporation and/or directors" }
+        ]
+      },
+      {
+        label: "FATF",
+        children: [
+          { label: "Financial Action Task Force: intergovernmental body setting AML/CFT standards" },
+          { label: "Current membership: 40 member jurisdictions" },
+          { label: "HK is a member through Egmont Group and directly" }
+        ]
+      }
+    ]
+  }
+];
+
+// ===== FLASHCARD DATA =====
+const FLASHCARDS = [
+  // Topic 1 — Regulatory Framework
+  { id: 1, topic: 1, front: "What is the max percentage of members needed for a special resolution?", back: "**75% or more** of members present at a general meeting.\n\nRequires **14 days notice** of intention.\n\nRequired for: reduction of share capital, voluntary winding up, alteration of memorandum/articles." },
+  { id: 2, topic: 1, front: "Which matters CANNOT be passed by circularization?", back: "1. **Removal of auditor** before expiration of term of office\n2. **Removal of a director** before his term of office\n\nThese MUST be put to members at a general meeting." },
+  { id: 3, topic: 1, front: "What does the SFC Advisory Committee do?", back: "Advises the SFC on **policy matters** concerning regulatory objectives and functions.\n\n**No executive powers** and does NOT police the SFC.\n\nChaired by the **SFC Chairman**." },
+  { id: 4, topic: 1, front: "Type 9 licensees can conduct which activities without additional licensing?", back: "Type 9 (asset managers) can conduct **Types 1, 2, 4, 5** regulated activities **solely for their Type 9 activity** without additional licensing." },
+  { id: 5, topic: 1, front: "What is the difference between a Responsible Officer (RO) and Executive Officer (EO)?", back: "**Responsible Officer (RO):** approved by SFC to supervise regulated activities of a **Licensed Corporation (LC)**.\n\n**Executive Officer (EO):** approved position for a **Registered Institution (RI)** — banks regulated by HKMA.\n\nThis is a common exam trap." },
+  { id: 6, topic: 1, front: "When must a special resolution copy be lodged with the Registrar of Companies?", back: "Within **15 days** of passing the special resolution." },
+  // Topic 2 — Subsidiary Legislation
+  { id: 7, topic: 2, front: "What are the maximum compensation limits under the Investor Compensation Fund?", back: "**Securities only:** HK$500,000 per claimant\n\n**Combined securities + futures** (same intermediary): HK$1,000,000 per claimant\n\nInstitutional investors are NOT eligible — retail only." },
+  { id: 8, topic: 2, front: "What is the investor compensation levy rate and current status?", back: "**0.002%** per side of each securities transaction on SEHK.\n\nCurrently **SUSPENDED**.\n\nCollected by SEHK on behalf of ICC." },
+  { id: 9, topic: 2, front: "What are the rules for a Standing Authority (client securities)?", back: "Maximum period: **12 months**\n\nRenewable on written request of client.\n\nDeemed renewal: after giving client **14 days notice** before expiry.\n\nConfirmation of deemed renewal: within **1 week** after expiry.\n\nProfessional Investors: **no time limit** on renewal." },
+  { id: 10, topic: 2, front: "The Client Money Rules do NOT apply to which intermediary type?", back: "**Registered Institutions** conducting **Type 1** (dealing in securities) activity.\n\nThe rules apply to licensed corporations and their associated entities only." },
+  { id: 11, topic: 2, front: "How long does an LC have to deposit client money into a segregated account?", back: "Within **1 business day** of receiving client money.\n\nAlternatively, within 1 business day it can: pay to client directly, pay per written direction, or pay per standing authority." },
+  { id: 12, topic: 2, front: "What collateral is NOT acceptable for non-centrally cleared OTC derivatives margins?", back: "**Equity shares of companies in the same group** as the counterparty (even if HK listed) are NOT acceptable.\n\nThe correlation/concentration risk makes them unsuitable as independent collateral." },
+  { id: 13, topic: 2, front: "What is the liquid capital requirement for an Approved Introducing Agent (AIA)?", back: "**HK$500,000** liquid capital.\n\nNo paid-up share capital requirement.\n\n(Lower than regular LCs because AIAs don't handle client assets)" },
+  { id: 14, topic: 2, front: "What is the penalty for breaching Financial Resources Rules with intent to defraud?", back: "Maximum: **HK$1,000,000 fine** AND **7 years imprisonment**" },
+  // Topic 3 — Management & Supervision
+  { id: 15, topic: 3, front: "Under the Code of Conduct, who bears primary responsibility for maintaining standards?", back: "**Senior management** (responsible officers and executive officers).\n\nThey should: be primarily responsible for appropriate standards; properly manage risk; understand the business; have access to all relevant information." },
+  { id: 16, topic: 3, front: "How long must telephone recordings be retained?", back: "At least **6 months**.\n\nMobile phone orders are discouraged but not banned — time and details must be recorded immediately." },
+  { id: 17, topic: 3, front: "What is the SFC Client Identity Rule timeline?", back: "The SFC can request the identity of an ultimate client.\n\nThe intermediary must provide the information within **2 business days** of the request." },
+  { id: 18, topic: 3, front: "What are the rescission rights for unsolicited call agreements?", back: "A person may rescind by written notice within:\n- **28 days** from entering the agreement, OR\n- **7 days** from discovering the contravention\n\nWhichever is the **EARLIER**." },
+  { id: 19, topic: 3, front: "What constitutes boiler room activity?", back: "High pressure tactics + promise of very high returns.\n\nFeatures:\n- Sole use of telephone/email/fax\n- Seller based overseas\n- 'Select group' / 'limited time' pressure\n- Down-payment into bank account\n- Exotic-sounding products (options/bonds/commodities)" },
+  { id: 20, topic: 3, front: "Which parties are EXEMPT from the prohibition on unsolicited calls?", back: "Exempt parties:\n- **Existing clients**\n- Licensed persons\n- Registered institutions\n- **Professional Investors (PIs)**\n- Solicitors/accountants acting in professional capacity\n- Money lenders" },
+  { id: 21, topic: 3, front: "What happens if an LC discovers non-client money in a segregated account?", back: "Must remove it within **1 business day** of becoming aware of the fact." },
+  { id: 22, topic: 3, front: "What must be reported to JFIU under the Drug Trafficking Ordinance?", back: "Any knowledge or **suspicion** that property relates to drug trafficking.\n\nReport to: police officer, customs officer, or **JFIU (Joint Financial Intelligence Unit)**.\n\nTipping off (telling the suspect about the report) is a separate offence." },
+  // Topic 4 — SEHK Trading
+  { id: 23, topic: 4, front: "What are the Red Chip criteria?", back: "Mainland China entities hold:\n- **>30%** of capital AND are the **single largest shareholder** (in aggregate), OR\n- **>20%** of capital AND there is **strong influential Mainland board presence**" },
+  { id: 24, topic: 4, front: "What is the settlement timeline for SEHK trades?", back: "**T+2** — Stock settled by debit/credit to CCASS accounts\n\n**T+3** — Money settlement; compulsory buy-in for those with insufficient stock" },
+  { id: 25, topic: 4, front: "List all transaction costs for SEHK trades", back: "- Brokerage: freely negotiable (IPO: 1%)\n- Trading fee: **0.00565%** per side → SEHK\n- SFC levy: **0.0027%** per side → SFC\n- AFRC levy: **0.00015%** per side → AFRC\n- Stamp duty: **0.1%** per side (round UP; exempt: ETFs, DWs, CBBCs)\n- Transfer deed: **HK$5** per deed (seller)\n- Transfer fee: **HK$2.50** per certificate (buyer)" },
+  { id: 26, topic: 4, front: "What is the minimum and maximum term for Equity Warrants?", back: "Minimum: **1 year**\nMaximum: **5 years**\n\nUS style: exercisable any time before maturity\nEuropean style: only exercisable AT maturity" },
+  { id: 27, topic: 4, front: "What is a naked short sale and why is it illegal?", back: "A **naked short sale** is selling securities when you do NOT have a presently exercisable and unconditional right to vest them in the buyer.\n\nIt is an **offence** under the SFO.\n\nContrast: a covered short sale (with stock borrowing arrangement) is legal." },
+  { id: 28, topic: 4, front: "What is the tick rule for short selling?", back: "A short sale **cannot be made below the best current ask price**.\n\nThis prevents driving the price down through short selling." },
+  { id: 29, topic: 4, front: "What does HKSCC's novation provide in CCASS?", back: "Through **novation**, HKSCC becomes the counterparty to both sides of the trade — it **guarantees both sides**.\n\nThis is the central counterparty (CCP) function." },
+  // Topic 5 — Other Securities Activities
+  { id: 30, topic: 5, front: "What is the distinction between an Approved Introducing Agent and a regular broker?", back: "AIA:\n- Only **introduces** clients / passes on orders\n- Does NOT handle client assets\n- Incurs NO legal liability on introduced business\n- Lower capital: HK$500k LC, no paid-up share capital\n- Exempt from: client securities/money rules, contract notes, ICF contributions" },
+  { id: 31, topic: 5, front: "Which entities are exempt from requiring a Type 8 (SMF) license?", back: "- Underwriting/sub-underwriting/prospectus acquisition\n- **Type 1 licensee** financing its own clients\n- CIS issuer financing own fund investors\n- AFIs for their clients' holdings\n- Individual financing company where they own **>10%**\n- Intermediary introducing to a related corporation" },
+  { id: 32, topic: 5, front: "What is the client order priority rule for Alternative Liquidity Pools (ALPs)?", back: "**Client orders must have PRIORITY over proprietary orders.**\n\nALP operators must ensure only qualified investors can participate." },
+  // Topic 6 — Options & OTC Derivatives
+  { id: 33, topic: 6, front: "What are the SEOCH DCP and GCP liquid capital requirements?", back: "**DCP (Direct Clearing Participant):** HK$5 million\n\n**GCP (General Clearing Participant):** HK$20 million\n\nReserve fund contributions:\n- DCP: HK$1.5 million\n- GCP: HK$5 million" },
+  { id: 34, topic: 6, front: "What is the correct valuation methodology for OTC derivatives?", back: "Must use **accepted/acceptable pricing methodology** (e.g., mark-to-market).\n\nProprietary methodology is **INCORRECT** — it lacks transparency and comparability.\n\nDaily accurate risk valuations are required." },
+  { id: 35, topic: 6, front: "What grace period applies when an OTC derivatives reporting exemption ceases?", back: "**3 months** from the day the exemption ceases.\n\nDuring this period, the entity has time to set up reporting arrangements." },
+  { id: 36, topic: 6, front: "What is the difference between a DCP and GCP at SEOCH?", back: "**DCP:** can register and clear trades for **its own and its clients'** accounts only.\n\n**GCP:** can register and clear for **its own, clients', AND other Trading Participants'** accounts.\n\nGCP is broader and has higher capital requirements (HK$20m vs HK$5m)." },
+  // Topic 7 — Market Misconduct
+  { id: 37, topic: 7, front: "List the six categories of market misconduct under the SFO", back: "1. Insider dealing\n2. False trading\n3. Price rigging\n4. Disclosure of information about **prohibited transactions**\n5. Disclosure of **false or misleading information** inducing transactions\n6. **Stock market manipulation**\n\nProceedings: either criminal courts OR MMT — NOT both." },
+  { id: 38, topic: 7, front: "What sanctions can the MMT impose?", back: "- **Disqualification** up to 5 years (director, liquidator, receiver, manager)\n- **Cold shoulder order**: prohibition on investing/trading in HK for up to 5 years\n- Prohibition on further market misconduct\n- Payment of **profits + compound interest** to Government\n- Payment of costs to Government and SFC\n- **Disciplinary referral** to professional body" },
+  { id: 39, topic: 7, front: "When does HK market misconduct jurisdiction apply to overseas conduct?", back: "HK market misconduct applies when:\n1. Conduct IN HK related to HK market securities ✓\n2. Conduct IN HK related to OVERSEAS securities ✓\n3. Conduct OVERSEAS related to **HK market** securities ✓\n\nNOT applicable: conduct overseas related to purely overseas securities." },
+  { id: 40, topic: 7, front: "What is the maximum fine for a listed company's breach of inside information disclosure?", back: "Up to **HK$8 million** regulatory fine and/or other sanctions.\n\nAn officer is liable if the breach is caused by **intentional, reckless, or negligent** conduct." }
+];
+
+// ===== QUIZ QUESTION BANK =====
+const QUESTIONS = [
+  {
+    id: 1, topic: 1,
+    text: "Leftco is a licensed corporation for Type 1 (dealing in securities). It wishes to issue an advertisement inviting members of the public to purchase securities. Which of the following is CORRECT?",
+    options: [
+      "A) Leftco must submit the advertisement to the SFC in all cases before it can be issued",
+      "B) Leftco does not need to submit the advertisement to the SFC if the securities being offered are authorized collective investment schemes",
+      "C) Leftco can only advertise if it has the prior written consent of the SEHK",
+      "D) Leftco must obtain approval from the HKEx before any advertisement can be issued"
+    ],
+    answer: 1,
+    explanation: "Licensed corporations are generally required to submit advertisements to the SFC before issue. However, there is an exemption when the securities are authorized collective investment schemes (CIS) under the SFO. In such cases, the CIS has already been authorized by the SFC, so a separate pre-submission of the advertisement is not required.",
+    trick: null,
+    topicName: "Regulatory Framework"
+  },
+  {
+    id: 2, topic: 6,
+    text: "Regarding valuation practices in options trading, which of the following is INCORRECT?",
+    options: [
+      "A) A firm should use its own proprietary methodology to value OTC derivatives positions",
+      "B) Daily accurate risk valuations using acceptable pricing methodology should be made",
+      "C) Value at Risk (VAR) models may be used subject to regulatory approval",
+      "D) Legal netting arrangements can be taken into account when calculating exposures"
+    ],
+    answer: 0,
+    explanation: "Using a 'proprietary methodology' is INCORRECT because OTC derivatives must be valued using 'acceptable pricing methodology' — meaning market-standard, transparent methods. Proprietary methods lack comparability and transparency, which undermines risk management oversight. The SFC requires mark-to-market using accepted approaches.",
+    trick: "INCORRECT",
+    topicName: "OTC Derivatives"
+  },
+  {
+    id: 3, topic: 7,
+    text: "Regarding SFC disciplinary sanctions, which of the following factors would lead to a MORE severe sanction being imposed?",
+    options: [
+      "A) The misconduct was a first offence by the person",
+      "B) The person cooperated fully with the SFC investigation",
+      "C) The misconduct damaged market integrity",
+      "D) The person voluntarily disclosed the misconduct to the SFC"
+    ],
+    answer: 2,
+    explanation: "Damaging market integrity is an aggravating factor that leads to MORE severe sanctions. The other options (first offence, cooperation, voluntary disclosure) are all mitigating factors that would reduce the severity of the sanction. Market integrity is fundamental to the SFC's regulatory objectives.",
+    trick: null,
+    topicName: "Market Misconduct"
+  },
+  {
+    id: 4, topic: 2,
+    text: "The Client Money Rules do NOT apply to which of the following intermediaries?",
+    options: [
+      "A) A registered institution conducting Type 1 (dealing in securities) activity",
+      "B) A licensed corporation conducting Type 1 activity",
+      "C) An associated entity of a licensed corporation holding client money",
+      "D) A licensed corporation conducting Type 8 (securities margin financing) activity"
+    ],
+    answer: 0,
+    explanation: "The Client Money Rules apply to licensed corporations and their associated entities. They do NOT apply to registered institutions (banks) conducting Type 1 activity. Registered institutions are regulated by HKMA under a different regime (the Banking Ordinance), so the SFC's Client Money Rules do not apply to their Type 1 activities.",
+    trick: null,
+    topicName: "Client Money Rules"
+  },
+  {
+    id: 5, topic: 3,
+    text: "StockCo, a licensed corporation, is onboarding a foreign client through an online platform. Which of the following steps are appropriate?\nI. Verify identity using government-issued ID documents\nII. Obtain a signed risk disclosure statement\nIII. Assess the client's investment experience and objectives\nIV. Have the client immediately execute a trade to verify account functionality",
+    options: [
+      "A) I and II only",
+      "B) II and III only",
+      "C) I, II and III only",
+      "D) I, II, III and IV"
+    ],
+    answer: 2,
+    explanation: "Steps I (identity verification), II (risk disclosure), and III (KYC — investment objectives and experience) are all required onboarding steps under the SFO and Code of Conduct. Step IV — having a client immediately execute a trade — is NOT an appropriate onboarding step and would be unusual and potentially inappropriate without proper account setup.",
+    trick: null,
+    topicName: "KYC & Client Onboarding"
+  },
+  {
+    id: 6, topic: 2,
+    text: "Karen is the Responsible Officer of Hycor, a licensed corporation. Hycor has breached the Financial Resources Rules. Which of the following is INCORRECT about the possible sanctions?",
+    options: [
+      "A) The SFC may revoke Hycor's license",
+      "B) The SFC may discipline Karen personally",
+      "C) Criminal charges may be brought if the breach was with intent to defraud",
+      "D) The SFC can only impose fines on Hycor, not on Karen personally"
+    ],
+    answer: 3,
+    explanation: "Statement D is INCORRECT. The SFC can impose sanctions on BOTH Hycor (the licensed corporation) AND Karen (the Responsible Officer) personally. Where an RO consented, connived in, or was neglectful of the breach, they can be disciplined individually. The SFC is NOT limited to fining only the corporation.",
+    trick: "INCORRECT",
+    topicName: "Financial Resources & RO Liability"
+  },
+  {
+    id: 7, topic: 2,
+    text: "Regarding liquid capital calculation, which of the following is CORRECT?",
+    options: [
+      "A) A licensed corporation must recognise the substance of transactions, not merely their legal form",
+      "B) Only assets physically held in Hong Kong can be counted as liquid capital",
+      "C) Client assets held in segregated accounts may be included in the firm's liquid capital",
+      "D) Licensed corporations may use a simplified calculation method approved by HKEX"
+    ],
+    answer: 0,
+    explanation: "When calculating liquid capital, a licensed corporation must look at the SUBSTANCE of transactions — not just their legal form. This prevents companies from artificially inflating their capital through technical arrangements that do not represent genuine financial resources. Client assets in segregated accounts cannot be included in the firm's own liquid capital.",
+    trick: null,
+    topicName: "Financial Resources"
+  },
+  {
+    id: 8, topic: 6,
+    text: "Which of the following assets is NOT acceptable as margin for non-centrally cleared OTC derivative transactions?",
+    options: [
+      "A) Cash in Hong Kong dollars",
+      "B) Hong Kong government bonds",
+      "C) Equity shares in a Hong Kong listed company that is in the same corporate group as the counterparty",
+      "D) Highly rated USD-denominated government securities"
+    ],
+    answer: 2,
+    explanation: "Equity shares in a company within the SAME CORPORATE GROUP as the counterparty are NOT acceptable as margin. This is because such shares are correlated with the counterparty's creditworthiness — if the counterparty defaults, those shares are also likely to decline in value simultaneously. This creates dangerous concentration risk and defeats the purpose of collateral.",
+    trick: null,
+    topicName: "OTC Derivatives Margin"
+  },
+  {
+    id: 9, topic: 1,
+    text: "A licensed corporation plans to commence virtual asset management activities. Which of the following is CORRECT regarding its obligations?",
+    options: [
+      "A) It can commence the activity immediately without any SFC notification as virtual assets are not regulated",
+      "B) It must obtain a new Type 9 license before commencing",
+      "C) It must notify clients only, not the SFC",
+      "D) It should notify the SFC as this constitutes a significant change in its business"
+    ],
+    answer: 3,
+    explanation: "Commencing virtual asset management activities constitutes a 'significant change' in the nature of a licensed corporation's business. Under the SFC's licensing conditions and the Code of Conduct, a significant change must be notified to (and in many cases approved by) the SFC before or promptly after the change. The SFC has developed a specific licensing framework for virtual asset activities.",
+    trick: null,
+    topicName: "Licensing & Virtual Assets"
+  },
+  {
+    id: 10, topic: 7,
+    text: "John commits an act of market manipulation. Under which circumstances does this constitute market misconduct under Hong Kong law?\nI. The act is committed in Hong Kong and relates to securities listed on the SEHK\nII. The act is committed in Hong Kong and relates to securities listed on an overseas market\nIII. The act is committed overseas but relates to securities listed on the SEHK",
+    options: [
+      "A) I only",
+      "B) I and III only",
+      "C) I, II and III",
+      "D) None of the above constitutes market misconduct"
+    ],
+    answer: 2,
+    explanation: "Hong Kong market misconduct jurisdiction extends to: (I) acts in HK relating to HK securities ✓, (II) acts in HK relating to overseas securities ✓, and (III) acts overseas relating to HK securities ✓. The connecting factor is EITHER the location being HK OR the securities being HK-listed. All three scenarios constitute market misconduct under the SFO.",
+    trick: null,
+    topicName: "Market Misconduct Jurisdiction"
+  },
+  {
+    id: 11, topic: 3,
+    text: "Under the Code of Conduct, primary responsibility for ensuring maintenance of appropriate standards of conduct lies with:",
+    options: [
+      "A) The Securities and Futures Commission",
+      "B) Senior management of the licensed corporation",
+      "C) Individual licensed representatives",
+      "D) The Hong Kong Exchanges and Clearing Limited"
+    ],
+    answer: 1,
+    explanation: "The Code of Conduct explicitly states that senior management (responsible officers and executive officers) should be primarily responsible for ensuring maintenance of appropriate standards of conduct and adherence to proper procedures. While the SFC sets the rules, it is management's responsibility to enforce them within the firm.",
+    trick: null,
+    topicName: "Code of Conduct"
+  },
+  {
+    id: 12, topic: 4,
+    text: "Jack is a director with a significant interest in shares of Listco, a listed company. Which of the following arrangements means Jack is NOT holding a derivative interest in those Listco shares?",
+    options: [
+      "A) Jack holds all shares in a private company that itself owns all the shares in Listco",
+      "B) Jack holds a call option to purchase additional Listco shares at a fixed price",
+      "C) Jack has entered a contract for difference (CFD) referencing Listco shares",
+      "D) Jack has a right to acquire Listco shares under a convertible bond"
+    ],
+    answer: 0,
+    explanation: "Holding shares in a private company that owns Listco shares is a direct equity interest — it is NOT a derivative. The private company holds the underlying Listco shares directly. Options B, C, and D are all derivatives (option, CFD, convertible bond) — instruments whose value is derived from the underlying Listco shares.",
+    trick: null,
+    topicName: "Securities & Derivatives Interests"
+  },
+  {
+    id: 13, topic: 3,
+    text: "Alan received an unsolicited call from a broker selling units in a mutual fund and purchased units as a result. Which of the following best describes Alan's rights?",
+    options: [
+      "A) Alan has no rescission rights as he voluntarily agreed to purchase",
+      "B) Alan can rescind only if he discovers a misrepresentation was made",
+      "C) Alan can rescind within 14 days of the transaction",
+      "D) Alan can rescind the agreement within the timeframe specified in the SFO"
+    ],
+    answer: 3,
+    explanation: "Alan can rescind by written notice within the SFO-specified timeframe: 28 days from entering the agreement OR 7 days from discovering the contravention — whichever is EARLIER. The right to rescind under the unsolicited calls provisions does not require proof of misrepresentation — the mere fact that the call was unsolicited gives rise to this right.",
+    trick: null,
+    topicName: "Unsolicited Calls"
+  },
+  {
+    id: 14, topic: 6,
+    text: "LeCo was exempt from OTC derivatives mandatory reporting obligations. It has recently ceased to be eligible for the exemption. Which of the following is CORRECT?",
+    options: [
+      "A) LeCo must commence reporting immediately on the day the exemption ceases",
+      "B) LeCo has a 1-month grace period to commence reporting",
+      "C) LeCo has a 3-month grace period from the day it ceased to be exempt to commence reporting",
+      "D) LeCo is permanently exempt once granted an exemption"
+    ],
+    answer: 2,
+    explanation: "When an entity ceases to be eligible for an OTC derivatives reporting exemption, it has a 3-month grace period from the date it ceased to be exempt to commence mandatory reporting. This grace period allows firms time to put in place the necessary systems and processes for reporting.",
+    trick: null,
+    topicName: "OTC Derivatives Reporting"
+  },
+  {
+    id: 15, topic: 3,
+    text: "A broker uses high-pressure telephone sales tactics and promises very high returns to persuade clients to buy obscure overseas securities. This is best described as:",
+    options: [
+      "A) Insider dealing",
+      "B) Boiler room activity, an improper trading practice",
+      "C) Price rigging",
+      "D) Front running"
+    ],
+    answer: 1,
+    explanation: "Boiler room activity is characterized by: (1) high-pressure tactics, (2) promise of very high returns, (3) sole use of telephone/email (no face-to-face meetings), (4) seller often overseas, (5) exotic or obscure products. This is an improper trading practice under the SFO, potentially involving unlicensed activity.",
+    trick: null,
+    topicName: "Improper Practices"
+  },
+  {
+    id: 16, topic: 6,
+    text: "Credit risk management for an intermediary engaged in OTC derivatives trading should be:",
+    options: [
+      "A) Handled directly by the front office trading desk to ensure quick decisions",
+      "B) Combined with market risk management to save costs",
+      "C) Outsourced to a credit rating agency",
+      "D) An independent function separate from sales and trading"
+    ],
+    answer: 3,
+    explanation: "Credit risk management for OTC derivatives must be an INDEPENDENT function — separate from sales and trading. This segregation ensures that credit decisions are not influenced by commercial pressures. The credit risk function sets and monitors credit limits; it should not be combined with trading/sales supervision.",
+    trick: null,
+    topicName: "OTC Credit Risk Management"
+  },
+  {
+    id: 17, topic: 4,
+    text: "Which of the following is a correct statement about Exchange Participants of the SEHK?",
+    options: [
+      "A) Exchange participantships and trading rights are both freely transferable",
+      "B) An Exchange Participant may be an individual person or a corporation",
+      "C) An Exchange Participant must hold a Type 1 license and be incorporated in Hong Kong",
+      "D) HKEx membership is required to become an Exchange Participant"
+    ],
+    answer: 2,
+    explanation: "Exchange Participants must: (1) hold a Type 1 license, (2) be a corporation limited by shares incorporated in Hong Kong. Trading rights are non-transferable since 2010, and Exchange participantships are also non-transferable. HKEx membership is no longer required to trade on the exchanges.",
+    trick: null,
+    topicName: "Exchange Participants"
+  },
+  {
+    id: 18, topic: 2,
+    text: "An intermediary receives client money on a Monday (business day). By when must it be deposited into a segregated account (absent other instructions)?",
+    options: [
+      "A) Immediately on the same day",
+      "B) By end of the next business day (Tuesday)",
+      "C) Within 3 business days",
+      "D) Within 7 days"
+    ],
+    answer: 1,
+    explanation: "Client money must be paid into a segregated account within 1 BUSINESS DAY of receipt. If received on Monday, it must be deposited by the end of Tuesday (the next business day), unless it is paid directly to the client, paid per written direction, or handled per a standing authority.",
+    trick: null,
+    topicName: "Client Money Rules"
+  },
+  {
+    id: 19, topic: 3,
+    text: "Which of the following correctly describes the suitability obligation under the Code of Conduct?",
+    options: [
+      "A) The primary suitability obligation rests with the client to assess their own needs",
+      "B) The SFC assesses suitability for each individual trade",
+      "C) HKEX is responsible for ensuring product suitability",
+      "D) The primary suitability obligation rests with the licensed/registered person, not the client"
+    ],
+    answer: 3,
+    explanation: "Under the Code of Conduct, the PRIMARY obligation relating to suitability rests with the licensed or registered person — NOT the client. The intermediary must know the client's circumstances (financial situation, experience, objectives) and ensure recommendations are suitable. Clients cannot waive this obligation on the intermediary's behalf.",
+    trick: null,
+    topicName: "Suitability"
+  },
+  {
+    id: 20, topic: 4,
+    text: "In the CCASS settlement timeline, when does money settlement occur?",
+    options: [
+      "A) On the same day as the trade (T)",
+      "B) On T+1",
+      "C) On T+2",
+      "D) On T+3"
+    ],
+    answer: 3,
+    explanation: "Money settlement in CCASS occurs on T+3. Stock settlement (electronic debit/credit to accounts) occurs on T+2. On T+3, clearing participants who do not have sufficient stock in their CCASS accounts will be subject to a compulsory buy-in.",
+    trick: null,
+    topicName: "CCASS Settlement"
+  },
+  {
+    id: 21, topic: 2,
+    text: "Which of the following statements about the Investor Compensation Fund is CORRECT?",
+    options: [
+      "A) Both retail and institutional investors may claim from the fund",
+      "B) The fund covers losses from A-shares purchased through the Shanghai-HK Stock Connect",
+      "C) The maximum combined claim for securities and futures losses is HK$500,000",
+      "D) The ICC is an independent company recognized and regulated by the SFC"
+    ],
+    answer: 3,
+    explanation: "The Investor Compensation Company (ICC) is an independent company recognized and regulated by the SFC. Option A is wrong — only retail investors can claim, not institutional investors. Option B is wrong — Stock Connect A-shares are excluded. Option C is wrong — the combined maximum is HK$1,000,000 (not HK$500,000).",
+    trick: null,
+    topicName: "Investor Compensation Fund"
+  },
+  {
+    id: 22, topic: 7,
+    text: "The Market Misconduct Tribunal (MMT) applies which standard of proof?",
+    options: [
+      "A) Beyond reasonable doubt (criminal standard)",
+      "B) Clear and convincing evidence",
+      "C) Probable cause",
+      "D) Balance of probabilities (civil standard)"
+    ],
+    answer: 3,
+    explanation: "The MMT applies the 'balance of probabilities' — the civil standard of proof. This is lower than the criminal standard of 'beyond reasonable doubt'. This is because MMT proceedings are civil, not criminal. Criminal prosecution uses the criminal courts and requires the higher standard.",
+    trick: null,
+    topicName: "Market Misconduct Tribunal"
+  },
+  {
+    id: 23, topic: 4,
+    text: "Which statement about stamp duty on SEHK transactions is CORRECT?",
+    options: [
+      "A) Stamp duty applies to all securities transactions including ETFs and derivative warrants",
+      "B) Stamp duty is 0.1% of the transaction value, rounded down to the nearest dollar",
+      "C) Stamp duty applies to derivative warrants but not to ordinary shares",
+      "D) Stamp duty is 0.1% per side, rounded UP to the nearest dollar, and is exempt for ETFs and derivative warrants"
+    ],
+    answer: 3,
+    explanation: "Stamp duty is 0.1% per side, and must be ROUNDED UP to the nearest dollar (not down). ETFs, derivative warrants (DWs), and callable bull/bear certificates (CBBCs) are EXEMPT from stamp duty. Ordinary shares, preference shares, H-shares, and Red Chips are all subject to stamp duty.",
+    trick: "INCORRECT",
+    topicName: "Transaction Costs"
+  },
+  {
+    id: 24, topic: 5,
+    text: "Under the SFO, which of the following persons is NOT required to hold a Type 4 license for advising on securities?",
+    options: [
+      "A) A fund manager providing written investment recommendations to retail clients",
+      "B) A corporate finance adviser issuing a fairness opinion on a takeover",
+      "C) A licensed representative of a Type 1 firm giving securities advice incidental to their dealing activities",
+      "D) An independent research firm selling equity research reports to institutional investors"
+    ],
+    answer: 2,
+    explanation: "A Type 1 or Type 2 licensee who gives securities advice WHOLLY INCIDENTAL to their dealing activities is exempt from requiring a separate Type 4 license. Option D (independent research) would require Type 4. Options A and B describe activities that need specific licenses (Type 9 for asset management, Type 6 for corporate finance).",
+    trick: "NOT",
+    topicName: "Advising on Securities"
+  },
+  {
+    id: 25, topic: 4,
+    text: "What are the Red Chip shareholding thresholds under the SEHK Listing Rules?",
+    options: [
+      "A) Mainland China entities hold more than 50% of shares",
+      "B) Mainland China entities hold more than 25% of shares",
+      "C) Mainland China entities hold more than 30% as single largest shareholder, OR more than 20% with strong Mainland board presence",
+      "D) Any Hong Kong listed company with operations primarily in Mainland China"
+    ],
+    answer: 2,
+    explanation: "Red Chip criteria: (1) Mainland China entities hold MORE THAN 30% of capital as the single largest shareholder (in aggregate), OR (2) Mainland China entities hold MORE THAN 20% of capital AND there is strong influential presence of Mainland China-linked individuals on the Board of Directors. Having operations in China is NOT sufficient.",
+    trick: null,
+    topicName: "Red Chips"
+  },
+  {
+    id: 26, topic: 6,
+    text: "What is the minimum liquid capital requirement for a SEOCH General Clearing Participant (GCP)?",
+    options: [
+      "A) HK$1.5 million",
+      "B) HK$5 million",
+      "C) HK$10 million",
+      "D) HK$20 million"
+    ],
+    answer: 3,
+    explanation: "A SEOCH General Clearing Participant (GCP) must maintain minimum liquid capital of HK$20 million. A Direct Clearing Participant (DCP) requires HK$5 million. The higher requirement for GCPs reflects their broader scope (they can clear for other Trading Participants' accounts in addition to their own and their clients').",
+    trick: null,
+    topicName: "SEOCH Requirements"
+  },
+  {
+    id: 27, topic: 3,
+    text: "Which of the following telephone recording requirements under the Code of Conduct is CORRECT?",
+    options: [
+      "A) Telephone recordings must be kept for at least 12 months",
+      "B) Telephone recordings must be kept for at least 6 months",
+      "C) The use of mobile phones for client orders is completely banned",
+      "D) Telephone recordings are only required for orders above HK$1 million"
+    ],
+    answer: 1,
+    explanation: "Telephone recordings must be retained for at least 6 MONTHS. Mobile phones for client orders are DISCOURAGED but NOT banned — when used, the time and details must be recorded immediately. There is no threshold amount for the recording requirement.",
+    trick: null,
+    topicName: "Code of Conduct — Diligence"
+  },
+  {
+    id: 28, topic: 2,
+    text: "Which of the following correctly describes the paid-up share capital requirement for an Approved Introducing Agent (AIA)?",
+    options: [
+      "A) HK$5 million paid-up share capital",
+      "B) HK$1 million paid-up share capital",
+      "C) HK$500,000 paid-up share capital",
+      "D) No paid-up share capital requirement; only liquid capital of HK$500,000 required"
+    ],
+    answer: 3,
+    explanation: "An Approved Introducing Agent (AIA) has NO paid-up share capital requirement. The only capital requirement is liquid capital of HK$500,000. This is because AIAs do not handle client assets and incur no legal liability on introduced business, making them a lower-risk entity.",
+    trick: null,
+    topicName: "AIA Capital Requirements"
+  },
+  {
+    id: 29, topic: 4,
+    text: "In the CCASS system, what event occurs on T+1?",
+    options: [
+      "A) Trade data is automatically transferred from SEHK to CCASS",
+      "B) Provisional clearing statements are issued",
+      "C) Final clearing statements become available and CNS net positions are established",
+      "D) Money settlement is confirmed through designated banks"
+    ],
+    answer: 2,
+    explanation: "On T+1, final clearing statements become available after 2pm. The Continuous Net Settlement (CNS) system offsets stock transactions in the same security on the same day, resulting in a single net position. HKSCC also guarantees both sides of the trade through novation on T+1. (T: provisional statements; T+2: stock settlement; T+3: money settlement)",
+    trick: null,
+    topicName: "CCASS Settlement"
+  },
+  {
+    id: 30, topic: 1,
+    text: "A corporation conducting Types 4, 5, 6, and 9 regulated activities solely for its wholly-owned subsidiaries:",
+    options: [
+      "A) Is exempt from licensing requirements for those activities",
+      "B) Requires a Type 9 license only",
+      "C) Must be licensed for all four activity types",
+      "D) Must register with HKMA instead of SFC"
+    ],
+    answer: 0,
+    explanation: "Under the SFO exclusions, corporations conducting Types 4, 5, 6, and 9 regulated activities SOLELY for their wholly-owned subsidiaries, holding companies holding all their issued shares, or other wholly-owned subsidiaries of the holding company are EXEMPT from licensing requirements for those activities.",
+    trick: null,
+    topicName: "Exclusions from Licensing"
+  },
+  {
+    id: 31, topic: 4,
+    text: "Under the SFO, which of the following constitutes a 'naked short sale'?",
+    options: [
+      "A) Selling securities using a confirmed stock borrowing arrangement",
+      "B) Selling securities through SEHK's OTP-C system",
+      "C) Selling securities when you have only a conditional right to the securities",
+      "D) Selling securities of a company not listed on the SEHK"
+    ],
+    answer: 2,
+    explanation: "A naked short sale is a short sale where the seller does NOT have a presently exercisable and UNCONDITIONAL right to vest the securities in the buyer. Having only a conditional right (e.g., subject to certain events) does not satisfy the SFO requirement. A covered short sale (with valid stock borrowing) IS legal. Naked short selling is an OFFENCE.",
+    trick: null,
+    topicName: "Short Selling"
+  },
+  {
+    id: 32, topic: 5,
+    text: "What is the correct description of an Alternative Liquidity Pool (ALP)?",
+    options: [
+      "A) An electronic system operated by the SEHK for off-market trading",
+      "B) A system operated by a licensed/registered person allowing crossing/matching of orders in HK and overseas listed securities",
+      "C) A dark pool operated by the SFC to provide additional liquidity",
+      "D) An interbank foreign exchange platform"
+    ],
+    answer: 1,
+    explanation: "An ALP is an electronic system operated by a LICENSED OR REGISTERED PERSON (not the SEHK or SFC) that allows crossing and matching of orders involving Hong Kong and overseas listed securities. The Code of Conduct applies to ALP operators, and client orders must have priority over proprietary orders.",
+    trick: null,
+    topicName: "Alternative Liquidity Pools"
+  },
+  {
+    id: 33, topic: 7,
+    text: "Eric is the Finance Director of Luckyco. He sold shares in Blackco, a company connected to Luckyco, after learning from internal meetings that Blackco was about to file for bankruptcy. This is an example of:",
+    options: [
+      "A) False trading",
+      "B) Front running",
+      "C) Stock market manipulation",
+      "D) Insider dealing"
+    ],
+    answer: 3,
+    explanation: "This is INSIDER DEALING. Eric, as Finance Director, had inside information (Blackco's impending bankruptcy) obtained in the course of his duties. He used this material, non-public information to trade in Blackco's securities. This is a classic example of insider dealing under the SFO — note that the dealing doesn't have to be in Luckyco's shares; it can be in securities of a connected company.",
+    trick: null,
+    topicName: "Insider Dealing"
+  },
+  {
+    id: 34, topic: 4,
+    text: "Which of the following products are subject to the price volatility mechanism in the Pre-Opening Session (POS) or Closing Auction Session (CAS) on SEHK?\nI. Exchange-traded funds (ETFs)\nII. Derivative warrants\nIII. Main Board stocks\nIV. Callable bull/bear certificates (CBBCs)",
+    options: [
+      "A) I and III only",
+      "B) I and IV only",
+      "C) I, III, and IV only",
+      "D) II and III only"
+    ],
+    answer: 0,
+    explanation: "The price volatility mechanism in POS/CAS applies to ETFs and stocks (Main Board and GEM) — i.e., I and III. Derivative warrants (II) and CBBCs (IV) have their own separate volatility control mechanisms and are NOT subject to the POS/CAS price volatility mechanism. The answer is I and III only.",
+    trick: null,
+    topicName: "Price Volatility Mechanism"
+  },
+  {
+    id: 35, topic: 1,
+    text: "Which of the following statements about Registered Institutions (RIs) is CORRECT?",
+    options: [
+      "A) RIs are licensed by the SFC in the same manner as Licensed Corporations",
+      "B) RIs are supervised solely by the SFC",
+      "C) RIs and Authorized Financial Institutions (AFIs) are different types of entities",
+      "D) RIs are Authorized Financial Institutions (AFIs) supervised by the HKMA"
+    ],
+    answer: 3,
+    explanation: "Registered Institutions are Authorized Financial Institutions (AFIs) — typically banks — that are registered with the SFC to conduct regulated activities. They are primarily supervised by the HKMA (not the SFC). Both RIs and AIs (Authorized Institutions under the Banking Ordinance) are AFIs. This is a key distinction from Licensed Corporations.",
+    trick: null,
+    topicName: "Registered Institutions"
+  },
+  {
+    id: 36, topic: 3,
+    text: "Which of the following measures would NOT be appropriate for managing credit risk in an intermediary's margin lending business?",
+    options: [
+      "A) Setting appropriate credit limits for each client",
+      "B) Monitoring the client's capital base and known adverse events",
+      "C) Booking securities purchased for a client in the firm's house account until the margin is repaid",
+      "D) Applying haircuts to the market value of securities pledged as collateral"
+    ],
+    answer: 2,
+    explanation: "Booking client-purchased securities in the FIRM'S HOUSE ACCOUNT (proprietary account) until margin is repaid is NOT appropriate. Client securities must be held in client accounts or properly designated accounts — keeping them in the house account would commingle client and firm assets, violating client securities rules. Options A, B, and D are all legitimate credit risk management practices.",
+    trick: "NOT",
+    topicName: "Credit Risk Management"
+  },
+  {
+    id: 37, topic: 7,
+    text: "Eric, a finance director of Luckyco, sold Blackco shares based on inside information about Blackco's upcoming bankruptcy. Which category of market misconduct has Eric committed?",
+    options: [
+      "A) False trading",
+      "B) Stock market manipulation",
+      "C) Disclosure of false information",
+      "D) Insider dealing"
+    ],
+    answer: 3,
+    explanation: "Eric has committed INSIDER DEALING. He was in possession of material non-public information (Blackco's bankruptcy) obtained through his position, and he traded on that information. It is irrelevant that he traded in Blackco (not Luckyco) — insider dealing applies to securities of ANY company when you have inside information about it through a connected relationship.",
+    trick: null,
+    topicName: "Market Misconduct — Insider Dealing"
+  },
+  {
+    id: 38, topic: 5,
+    text: "Under the SFO, which of the following statements correctly identifies when a person dealing in securities is NOT required to hold a Type 8 license for securities margin financing?\nI. Where a Type 1 licensee provides margin finance to its own clients\nII. Where an Authorized Financial Institution (AFI) provides margin finance to its own clients\nIII. Where an individual provides margin finance to a company in which he owns more than 10%",
+    options: [
+      "A) I only",
+      "B) I and III only",
+      "C) II only",
+      "D) I, II and III"
+    ],
+    answer: 3,
+    explanation: "All three are exempt from requiring a Type 8 license: I) Type 1 licensees can provide margin financing to their own clients without Type 8, II) AFIs (banks under HKMA supervision) providing margin finance to their clients are exempt, III) An individual providing accommodation to a company where they hold >10% is exempt. The exemptions exist to avoid unnecessary regulatory duplication.",
+    trick: null,
+    topicName: "Securities Margin Financing Exemptions"
+  },
+  {
+    id: 39, topic: 1,
+    text: "Which of the following statements about Registered Institutions (RIs) is CORRECT?",
+    options: [
+      "A) RIs are the same as Licensed Corporations and face identical regulatory requirements",
+      "B) RIs are not subject to any SFC regulation",
+      "C) RIs are not required to comply with SFC Codes of Conduct",
+      "D) RIs are Authorized Financial Institutions (AFIs) regulated by HKMA, and both RIs and AIs are types of AFIs"
+    ],
+    answer: 3,
+    explanation: "RIs are AFIs (Authorized Financial Institutions) — primarily banks — registered with the SFC to conduct regulated activities. They are supervised by the HKMA. Both RIs and AIs (Authorized Institutions under the Banking Ordinance) are types of AFIs. They do face SFC codes of conduct but have a different regulatory framework from LCs.",
+    trick: null,
+    topicName: "Regulatory Framework — RIs"
+  },
+  {
+    id: 40, topic: 2,
+    text: "Which of the following best describes 'liquid capital' in the context of Financial Resources Rules?",
+    options: [
+      "A) The total assets of the licensed corporation",
+      "B) The ranking liabilities — money the licensed corporation owes, including most liabilities",
+      "C) Only cash held in bank accounts",
+      "D) The value of client assets held in segregated accounts"
+    ],
+    answer: 1,
+    explanation: "Liquid capital = assets - ranking liabilities. Ranking liabilities are the money the LC owes, which includes most or all of the LC's liabilities. Liquid capital measures what remains after deducting these liabilities from eligible assets — it represents the firm's own financial cushion. Client assets in segregated accounts are NOT included in the firm's liquid capital calculation.",
+    trick: null,
+    topicName: "Financial Resources — Liquid Capital"
+  }
+];
+
+// ===== KEY NUMBERS DATA =====
+const KEY_NUMBERS = [
+  { category: "Compensation", number: "HK$500,000", label: "Max ICF Securities Claim", desc: "Maximum compensation per claimant for losses from securities trading default", type: "primary" },
+  { category: "Compensation", number: "HK$1,000,000", label: "Max ICF Combined Claim", desc: "Maximum combined securities + futures claim from same intermediary", type: "gold" },
+  { category: "Compensation", number: "0.002%", label: "ICF Levy Rate", desc: "Per side on SEHK transactions — currently SUSPENDED", type: "primary" },
+  { category: "Standing Authority", number: "12 months", label: "Standing Authority Max Period", desc: "Maximum effective period; renewable on written client request", type: "gold" },
+  { category: "Standing Authority", number: "14 days", label: "Deemed Renewal Notice Period", desc: "Notice to client required before deemed renewal of standing authority", type: "gold" },
+  { category: "Standing Authority", number: "1 week", label: "Deemed Renewal Confirmation", desc: "Intermediary must confirm deemed renewal within 1 week after expiry", type: "primary" },
+  { category: "Client Money", number: "1 business day", label: "Client Money Deposit Timeline", desc: "Must deposit client money into segregated account within 1 business day of receipt", type: "primary" },
+  { category: "Telephone Records", number: "6 months", label: "Phone Recording Retention", desc: "Minimum retention period for telephone recordings of client orders", type: "primary" },
+  { category: "Unsolicited Calls", number: "28 days", label: "Rescission Period (from agreement)", desc: "Client can rescind agreement made following unsolicited call within 28 days", type: "gold" },
+  { category: "Unsolicited Calls", number: "7 days", label: "Rescission Period (from discovery)", desc: "Or within 7 days of discovering the contravention — whichever is EARLIER", type: "gold" },
+  { category: "Transaction Costs", number: "0.1%", label: "Stamp Duty Rate", desc: "Per side, rounded UP to nearest dollar. Exempt: ETFs, DWs, CBBCs", type: "primary" },
+  { category: "Transaction Costs", number: "0.0027%", label: "SFC Transaction Levy", desc: "Per side of each purchase or sale of securities, payable to SFC", type: "primary" },
+  { category: "Transaction Costs", number: "0.00565%", label: "SEHK Trading Fee", desc: "Per side of each transaction, payable to SEHK", type: "primary" },
+  { category: "Transaction Costs", number: "0.00015%", label: "AFRC Transaction Levy", desc: "Per side, payable to the Accounting and Financial Reporting Council", type: "primary" },
+  { category: "Transaction Costs", number: "1%", label: "IPO Brokerage", desc: "Set brokerage rate for IPO application money (not freely negotiable)", type: "gold" },
+  { category: "Transaction Costs", number: "HK$5.00", label: "Transfer Deed Stamp Duty", desc: "Per new transfer deed, paid by seller/registered holder to Government", type: "primary" },
+  { category: "Transaction Costs", number: "HK$2.50", label: "Transfer Fee per Certificate", desc: "Per new share certificate, paid by buyer to company registrar", type: "primary" },
+  { category: "Settlement", number: "T+2", label: "CCASS Stock Settlement", desc: "SEHK trades settled by debit/credit to CCASS stock accounts", type: "primary" },
+  { category: "Settlement", number: "T+3", label: "CCASS Money Settlement", desc: "Money settlement through designated banks; compulsory buy-in if insufficient stock", type: "primary" },
+  { category: "Capital Requirements", number: "HK$500,000", label: "AIA Liquid Capital", desc: "Approved Introducing Agent minimum liquid capital (no paid-up share capital required)", type: "primary" },
+  { category: "Capital Requirements", number: "HK$5m / HK$20m", label: "SEOCH DCP / GCP Liquid Capital", desc: "DCP: HK$5m minimum. GCP: HK$20m minimum liquid capital", type: "gold" },
+  { category: "Capital Requirements", number: "HK$1.5m / HK$5m", label: "SEOCH Reserve Fund Contributions", desc: "DCP: HK$1.5m. GCP: HK$5m reserve fund initial contribution", type: "primary" },
+  { category: "Penalties", number: "HK$8m", label: "Max Fine — Disclosure Breach", desc: "Maximum regulatory fine for listed company breach of inside info disclosure obligations", type: "error" },
+  { category: "Penalties", number: "HK$1m + 7 years", label: "Financial Resources Breach (Intent)", desc: "Maximum: HK$1,000,000 fine AND 7 years imprisonment for breach with intent to defraud", type: "error" },
+  { category: "Penalties", number: "5 years", label: "MMT Disqualification / Cold Shoulder", desc: "MMT can disqualify (from directorships etc.) or impose cold shoulder order for UP TO 5 years", type: "error" },
+  { category: "KYC", number: "2 business days", label: "Client Identity Rule Response", desc: "SFC can request ultimate client identity; intermediary must provide within 2 business days", type: "primary" },
+  { category: "Structured Products", number: "1–5 years", label: "Equity Warrant Term", desc: "Minimum 1 year, maximum 5 years for equity warrant term", type: "gold" },
+  { category: "Red Chips", number: ">30%", label: "Red Chip — Single Largest Shareholder", desc: "Mainland entities hold >30% of capital AND are single largest shareholder (in aggregate)", type: "primary" },
+  { category: "Red Chips", number: ">20%", label: "Red Chip — Board Presence Route", desc: "Mainland entities hold >20% of capital WITH strong influential Mainland board presence", type: "primary" },
+  { category: "FATF", number: "40", label: "FATF Member Jurisdictions", desc: "Financial Action Task Force currently has 40 member jurisdictions", type: "primary" },
+  { category: "OTC Derivatives", number: "3 months", label: "OTC Reporting Grace Period", desc: "3-month grace period to commence reporting after ceasing to be exempt", type: "gold" },
+  { category: "Penalties", number: "HK$5m + 15 days", label: "Special Resolution Filing", desc: "Printed copy must be lodged with Registrar of Companies within 15 days of passing", type: "primary" }
+];
+
+// ===== TRICK PATTERNS DATA =====
+const TRICK_PATTERNS = [
+  {
+    icon: "🚫",
+    title: "\"Which is NOT / INCORRECT\"",
+    subtitle: "Find the false statement among true ones",
+    explanation: "The question asks you to identify the ONE wrong answer. The trap: you may stop when you find the first correct-sounding answer. You must evaluate ALL four options and identify the false one.",
+    example: {
+      q: "Which of the following is INCORRECT about AIA capital requirements?",
+      highlight: "INCORRECT",
+      tip: "Stop and remind yourself: I am looking for the <strong>WRONG</strong> statement. All other options describe correct facts — only one will be wrong. Eliminate correct statements until only the incorrect one remains."
+    }
+  },
+  {
+    icon: "⚠️",
+    title: "\"Which does NOT apply / NOT required\"",
+    subtitle: "Reverse logic — find the exception",
+    example: {
+      q: "The Client Money Rules do NOT apply to which intermediary?",
+      highlight: "NOT",
+      tip: "Reverse your thinking. Instead of 'who must comply?', ask 'who is EXEMPT?'. Read each option as a candidate for the exemption, not the rule."
+    }
+  },
+  {
+    icon: "🔄",
+    title: "\"All of the following EXCEPT\"",
+    subtitle: "Three are correct, one is not",
+    example: {
+      q: "All of the following are categories of market misconduct EXCEPT:",
+      highlight: "EXCEPT",
+      tip: "Similar to NOT/INCORRECT questions. You must identify the one item that does NOT belong. Do not confuse items that are 'almost right' — look for the clear outlier."
+    }
+  },
+  {
+    icon: "🏦",
+    title: "LC vs RI / RO vs EO confusion",
+    subtitle: "Common entity-type mix-ups",
+    example: {
+      q: "The Client Money Rules apply to registered institutions conducting Type 1 activity. TRUE or FALSE?",
+      highlight: "registered institutions",
+      tip: "<strong>LC (Licensed Corporation)</strong> → <strong>RO (Responsible Officer)</strong> → subject to Client Money Rules.\n\n<strong>RI (Registered Institution)</strong> → <strong>EO (Executive Officer)</strong> → regulated by HKMA; Client Money Rules do NOT apply for Type 1 activity.\n\nAlways check if the question says 'licensed corporation' or 'registered institution'."
+    }
+  },
+  {
+    icon: "🔢",
+    title: "Roman numeral \"I, II, III\" combinations",
+    subtitle: "Evaluate each statement independently first",
+    example: {
+      q: "Which circumstances constitute market misconduct?\nI. Act in HK, HK securities\nII. Act in HK, overseas securities\nIII. Act overseas, HK securities",
+      highlight: "I, II and III",
+      tip: "Evaluate each Roman numeral statement as TRUE or FALSE independently, then find the answer that matches your assessment. Do NOT look at the answer choices first — they can bias your evaluation. Write T/F next to each, then find the matching option."
+    }
+  },
+  {
+    icon: "📏",
+    title: "\"may\" vs \"must\" vs \"shall\"",
+    subtitle: "Mandatory vs discretionary distinctions",
+    example: {
+      q: "The SFC may/must/shall revoke a license when...",
+      highlight: "may",
+      tip: "<strong>SHALL / MUST</strong> = mandatory, no discretion.\n\n<strong>MAY</strong> = discretionary, regulator has a choice.\n\nExam questions often swap 'may' with 'must' or vice versa to create incorrect statements. Pay close attention to modal verbs."
+    }
+  },
+  {
+    icon: "🔢",
+    title: "Number proximity traps",
+    subtitle: "Confusingly similar thresholds",
+    example: {
+      q: "Standing authority: 12 months vs 14 days vs 1 week vs 28 days vs 7 days",
+      highlight: null,
+      tip: "<strong>Standing authority max: 12 months</strong>\n<strong>Deemed renewal notice: 14 days</strong>\n<strong>Renewal confirmation: 1 week</strong>\n<strong>Unsolicited call rescission: 28 days (or 7 days)</strong>\n<strong>ICF max securities: HK$500k; combined: HK$1m</strong>\n<strong>Phone recordings: 6 months</strong>\n\nMemorize these as a group — they are frequently tested together."
+    }
+  },
+  {
+    icon: "🎯",
+    title: "License type confusion",
+    subtitle: "Type 1 vs 4 vs 8 vs 9 common traps",
+    example: {
+      q: "Which license is required for securities margin financing?",
+      highlight: "Type 8",
+      tip: "<strong>Type 1:</strong> Dealing in securities\n<strong>Type 4:</strong> Advising on securities\n<strong>Type 6:</strong> Advising on corporate finance\n<strong>Type 8:</strong> Securities margin financing\n<strong>Type 9:</strong> Asset management\n\nNote: Type 1 licensees CAN provide margin finance to their own clients WITHOUT a Type 8 license."
+    }
+  }
+];
+</script>
+<script>
+// ===== APP STATE =====
+let state = {
+  mode: 'overview',
+  currentTopic: 1,
+  quiz: {
+    active: false,
+    questions: [],
+    currentIndex: 0,
+    answered: false,
+    selectedOption: null,
+    score: 0,
+    topicScores: {},
+    timer: null,
+    timeLeft: 0,
+    useTimer: false,
+    numQuestions: 10,
+    filterTopic: 0,
+    finished: false,
+    results: []
+  },
+  flashcards: {
+    currentIndex: 0,
+    isFlipped: false,
+    currentFilter: 'all',
+    status: {} // cardId -> 'known' | 'review'
+  },
+  progress: {}
+};
+
+// State is in-memory only
+function loadState() {}
+function saveState() {}
+
+// ===== INIT =====
+function init() {
+  loadState();
+  renderSidebar();
+  updateProgressSummary();
+  switchMode('overview');
+  initThemeToggle();
+  initSidebarToggle();
+}
+
+let _theme = 'dark';
+function initThemeToggle() {
+  const btn = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  html.setAttribute('data-theme', _theme);
+  updateThemeIcon(btn, _theme);
+  btn.addEventListener('click', () => {
+    _theme = _theme === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', _theme);
+    updateThemeIcon(btn, _theme);
+  });
+}
+
+function updateThemeIcon(btn, theme) {
+  if (theme === 'dark') {
+    btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+  } else {
+    btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
+  }
+}
+
+function initSidebarToggle() {
+  const toggle = document.getElementById('sidebarToggle');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('mobileOverlay');
+  const isMobile = () => window.innerWidth <= 768;
+
+  toggle.addEventListener('click', () => {
+    if (isMobile()) {
+      sidebar.classList.toggle('mobile-open');
+      overlay.classList.toggle('show');
+    } else {
+      sidebar.classList.toggle('collapsed');
+    }
+  });
+  overlay.addEventListener('click', () => {
+    sidebar.classList.remove('mobile-open');
+    overlay.classList.remove('show');
+  });
+}
+
+function closeMobileSidebar() {
+  if (window.innerWidth <= 768) {
+    document.getElementById('sidebar').classList.remove('mobile-open');
+    document.getElementById('mobileOverlay').classList.remove('show');
+  }
+}
+
+// ===== SIDEBAR =====
+function renderSidebar() {
+  const nav = document.getElementById('sidebarTopics');
+  const maxWeight = Math.max(...TOPICS.map(t => t.weight));
+  nav.innerHTML = TOPICS.map(t => `
+    <div class="topic-nav-item${state.currentTopic === t.id && (state.mode === 'mindmap' || state.mode === 'flashcard') ? ' active' : ''}"
+         onclick="selectTopic(${t.id})"
+         data-topic="${t.id}">
+      <span class="topic-num">T${t.id}</span>
+      <div class="topic-info">
+        <div class="topic-name">${t.title}</div>
+        <div class="topic-weight">${t.weight}% of exam</div>
+        <div class="weight-bar"><div class="weight-fill" style="width:${(t.weight/maxWeight)*100}%"></div></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateProgressSummary() {
+  const total = FLASHCARDS.length;
+  const known = Object.values(state.flashcards.status).filter(s => s === 'known').length;
+  document.getElementById('progressSummary').textContent = `${known}/${total} cards mastered`;
+}
+
+function selectTopic(topicId) {
+  state.currentTopic = topicId;
+  if (state.mode !== 'mindmap' && state.mode !== 'flashcard') {
+    switchMode('mindmap');
+  } else {
+    renderContent();
+  }
+  renderSidebar();
+  closeMobileSidebar();
+}
+
+// ===== MODE SWITCH =====
+function switchMode(mode) {
+  state.mode = mode;
+  document.querySelectorAll('.mode-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.mode === mode);
+  });
+  // Hide topic nav when on non-topic modes
+  const topicsNav = document.getElementById('sidebarTopics');
+  if (topicsNav) {
+    topicsNav.style.display = (mode === 'mindmap' || mode === 'flashcard') ? 'block' : 'block';
+  }
+  // Stop quiz timer if switching away
+  if (mode !== 'quiz' && state.quiz.timer) {
+    clearInterval(state.quiz.timer);
+  }
+  renderSidebar();
+  renderContent();
+}
+
+function renderContent() {
+  const area = document.getElementById('viewArea');
+  const titleEl = document.getElementById('topbarTitle');
+  const badgeEl = document.getElementById('topbarBadge');
+
+  switch(state.mode) {
+    case 'overview':
+      titleEl.textContent = 'HKSI Paper 2 — Study Tool';
+      badgeEl.textContent = '40 MCQ · 60 min · 70% pass';
+      area.innerHTML = renderOverview();
+      break;
+    case 'mindmap':
+      const t = TOPICS.find(x => x.id === state.currentTopic) || TOPICS[0];
+      titleEl.textContent = `T${t.id}: ${t.title}`;
+      badgeEl.textContent = `${t.weight}% of exam`;
+      area.innerHTML = renderMindMap(t);
+      break;
+    case 'flashcard':
+      titleEl.textContent = 'Flashcards';
+      badgeEl.textContent = `${FLASHCARDS.length} cards`;
+      area.innerHTML = renderFlashcardUI();
+      initFlashcard();
+      break;
+    case 'quiz':
+      titleEl.textContent = 'Quiz Mode';
+      badgeEl.textContent = '40 questions available';
+      area.innerHTML = renderQuizUI();
+      initQuizUI();
+      break;
+    case 'numbers':
+      titleEl.textContent = 'Key Numbers Reference';
+      badgeEl.textContent = 'Quick Reference';
+      area.innerHTML = renderKeyNumbers();
+      break;
+    case 'tricks':
+      titleEl.textContent = 'Trick Question Patterns';
+      badgeEl.textContent = 'Exam Strategy';
+      area.innerHTML = renderTrickPatterns();
+      break;
+    case 'tables':
+      titleEl.textContent = 'Quick Reference Tables';
+      badgeEl.textContent = 'Capital · Penalties · Timelines';
+      area.innerHTML = renderRefTables();
+      initTableTabs();
+      break;
+  }
+}
+
+// ===== OVERVIEW =====
+function renderOverview() {
+  const knownCards = Object.values(state.flashcards.status).filter(s => s === 'known').length;
+  return `
+  <div class="overview-container">
+    <div class="overview-hero">
+      <div class="overview-eyebrow">HKSI Licensing Examination</div>
+      <h1 class="overview-h1">Paper 2 — Regulation of Securities</h1>
+      <p class="overview-desc">Complete study tool covering all 7 topics. Use the mind maps to understand concepts, flashcards to drill key facts, and quiz mode to test yourself.</p>
+      <div class="overview-stats">
+        <div class="ov-stat">
+          <span class="ov-stat-num">40</span>
+          <span class="ov-stat-label">MCQ Questions</span>
+        </div>
+        <div class="ov-stat">
+          <span class="ov-stat-num">60</span>
+          <span class="ov-stat-label">Minutes</span>
+        </div>
+        <div class="ov-stat">
+          <span class="ov-stat-num">70%</span>
+          <span class="ov-stat-label">Pass Mark</span>
+        </div>
+        <div class="ov-stat">
+          <span class="ov-stat-num">${knownCards}/${FLASHCARDS.length}</span>
+          <span class="ov-stat-label">Cards Mastered</span>
+        </div>
+      </div>
+    </div>
+    <div class="overview-grid">
+      <div class="ov-card" onclick="switchMode('mindmap')">
+        <div class="ov-card-icon">🗺️</div>
+        <div class="ov-card-title">Mind Maps</div>
+        <div class="ov-card-desc">Collapsible topic trees for all 7 topics. Understand the structure before memorizing details.</div>
+        <div class="ov-card-action">Explore topics →</div>
+      </div>
+      <div class="ov-card gold" onclick="switchMode('quiz')">
+        <div class="ov-card-icon" style="background:var(--color-gold-highlight)">📝</div>
+        <div class="ov-card-title">Quiz Mode</div>
+        <div class="ov-card-desc">40 practice questions with detailed explanations. Includes trick alerts for NOT/INCORRECT questions.</div>
+        <div class="ov-card-action" style="color:var(--color-gold)">Start quiz →</div>
+      </div>
+      <div class="ov-card success" onclick="switchMode('flashcard')">
+        <div class="ov-card-icon" style="background:var(--color-success-highlight)">🃏</div>
+        <div class="ov-card-title">Flashcards</div>
+        <div class="ov-card-desc">${FLASHCARDS.length} cards covering key definitions, rules, and thresholds. Mark cards as known or for review.</div>
+        <div class="ov-card-action" style="color:var(--color-success)">Study cards →</div>
+      </div>
+      <div class="ov-card" onclick="switchMode('numbers')">
+        <div class="ov-card-icon">🔢</div>
+        <div class="ov-card-title">Key Numbers</div>
+        <div class="ov-card-desc">All important thresholds, amounts, and timeframes on one page. Heavily tested in the exam.</div>
+        <div class="ov-card-action">View reference →</div>
+      </div>
+      <div class="ov-card gold" onclick="switchMode('tricks')">
+        <div class="ov-card-icon" style="background:var(--color-gold-highlight)">⚡</div>
+        <div class="ov-card-title">Trick Patterns</div>
+        <div class="ov-card-desc">Learn the 8 most common question patterns that trip up candidates. Spot NOT/INCORRECT traps.</div>
+        <div class="ov-card-action" style="color:var(--color-gold)">Learn patterns →</div>
+      </div>
+      <div class="ov-card success" onclick="switchMode('tables')">
+        <div class="ov-card-icon" style="background:var(--color-success-highlight)">📊</div>
+        <div class="ov-card-title">Reference Tables</div>
+        <div class="ov-card-desc">Capital requirements, penalties, and timelines all in clean sortable tables. Perfect for last-minute review.</div>
+        <div class="ov-card-action" style="color:var(--color-success)">View tables →</div>
+      </div>
+    </div>
+    <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-5);">
+      <h3 style="font-size:var(--text-base);font-weight:700;color:var(--color-text);margin-bottom:var(--space-4);">Topic Weightings</h3>
+      <div style="display:flex;flex-direction:column;gap:var(--space-3);">
+        ${TOPICS.map(t => `
+          <div onclick="selectTopic(${t.id})" style="cursor:pointer;padding:var(--space-3);background:var(--color-surface-2);border-radius:var(--radius-md);border:1px solid var(--color-border);transition:all var(--transition-interactive);"
+               onmouseover="this.style.borderColor='var(--color-primary)'" onmouseout="this.style.borderColor='var(--color-border)'">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-2);">
+              <span style="font-size:var(--text-sm);font-weight:600;color:var(--color-text);">T${t.id}: ${t.title}</span>
+              <span style="font-size:var(--text-xs);font-weight:700;color:var(--color-primary);">${t.weight}%</span>
+            </div>
+            <div style="height:4px;background:var(--color-border);border-radius:4px;overflow:hidden;">
+              <div style="height:100%;width:${t.weight}%;background:var(--color-primary);border-radius:4px;"></div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </div>`;
+}
+
+// ===== MIND MAP =====
+function renderMindMap(topic) {
+  return `
+  <div class="mindmap-container">
+    <div class="mindmap-header">
+      <div class="mindmap-title">T${topic.id}: ${topic.title}</div>
+      <div class="mindmap-desc">${topic.desc}</div>
+    </div>
+    <div class="mindmap-controls">
+      <button class="ctrl-btn" onclick="expandAll()">Expand All</button>
+      <button class="ctrl-btn" onclick="collapseAll()">Collapse All</button>
+    </div>
+    <div class="tree-root" id="treeRoot">
+      ${topic.nodes.map((node, i) => renderTreeNode(node, 0, `n${i}`)).join('')}
+    </div>
+  </div>`;
+}
+
+function renderTreeNode(node, level, key) {
+  const hasChildren = node.children && node.children.length > 0;
+  const tagHTML = node.tag ? `<span class="tree-tag${node.tag === 'important' || node.tag === 'EXAM' ? ' important' : ''}">${node.tag}</span>` : '';
+
+  if (!hasChildren) {
+    return `<div class="tree-node">
+      <div class="tree-node-header level-${level}" style="${level > 0 ? '' : ''}">
+        <span class="tree-spacer"></span>
+        <span class="tree-label">${escapeHtml(node.label)}</span>
+        ${tagHTML}
+      </div>
+    </div>`;
+  }
+
+  return `<div class="tree-node" id="${key}">
+    <div class="tree-node-header level-${level} open" onclick="toggleNode('${key}')">
+      <span class="tree-toggle">▶</span>
+      <span class="tree-label">${escapeHtml(node.label)}</span>
+      ${tagHTML}
+    </div>
+    <div class="tree-children" id="${key}_c">
+      ${node.children.map((child, i) => renderTreeNode(child, level + 1, `${key}_${i}`)).join('')}
+    </div>
+  </div>`;
+}
+
+function escapeHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function toggleNode(key) {
+  const header = document.querySelector(`#${key} > .tree-node-header`);
+  const children = document.getElementById(`${key}_c`);
+  if (!header || !children) return;
+  const isOpen = header.classList.contains('open');
+  if (isOpen) {
+    header.classList.remove('open');
+    children.classList.add('hidden');
+  } else {
+    header.classList.add('open');
+    children.classList.remove('hidden');
+  }
+}
+
+function expandAll() {
+  document.querySelectorAll('.tree-node-header').forEach(h => h.classList.add('open'));
+  document.querySelectorAll('.tree-children').forEach(c => c.classList.remove('hidden'));
+}
+
+function collapseAll() {
+  document.querySelectorAll('.tree-node-header').forEach(h => h.classList.remove('open'));
+  document.querySelectorAll('.tree-children').forEach(c => c.classList.add('hidden'));
+}
+
+// ===== FLASHCARD =====
+function renderFlashcardUI() {
+  return `<div class="flashcard-container">
+    <div class="fc-header">
+      <div class="fc-filter">
+        <button class="fc-filter-btn${state.flashcards.currentFilter === 'all' ? ' active' : ''}" onclick="setFCFilter('all')">All (${FLASHCARDS.length})</button>
+        <button class="fc-filter-btn${state.flashcards.currentFilter === 'review' ? ' active' : ''}" onclick="setFCFilter('review')">Review Again</button>
+        <button class="fc-filter-btn${state.flashcards.currentFilter === 'unknown' ? ' active' : ''}" onclick="setFCFilter('unknown')">Unstudied</button>
+      </div>
+    </div>
+    <div class="fc-progress">
+      <div class="fc-progress-bar">
+        <div class="fc-progress-fill" id="fcProgressFill" style="width:0%"></div>
+      </div>
+      <div class="fc-progress-meta">
+        <span id="fcProgressMeta">Card 1 of ${FLASHCARDS.length}</span>
+        <span id="fcKnownCount">0 mastered</span>
+      </div>
+    </div>
+    <div class="fc-scene" onclick="flipCard()" id="fcScene" role="button" aria-label="Click to flip card">
+      <div class="fc-card" id="fcInner">
+        <div class="fc-face fc-front">
+          <div class="fc-card-label">Question / Term</div>
+          <div class="fc-term" id="fcTerm">Loading...</div>
+          <div class="fc-topic-tag" id="fcTopicTag">T1</div>
+          <div class="fc-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 15v-4m0-4h.01"/></svg>
+            Click to reveal answer
+          </div>
+        </div>
+        <div class="fc-face fc-back">
+          <div class="fc-card-label">Answer / Definition</div>
+          <div class="fc-definition" id="fcDef">Loading...</div>
+          <div class="fc-topic-tag" id="fcTopicTagBack">T1</div>
+        </div>
+      </div>
+    </div>
+    <div class="fc-actions" id="fcActions" style="display:none">
+      <button class="fc-review" onclick="markCard('review')">Review Again</button>
+      <button class="fc-got-it" onclick="markCard('known')">Got It ✓</button>
+    </div>
+    <div class="fc-nav">
+      <button class="fc-nav-btn" onclick="navCard(-1)">← Prev</button>
+      <span class="fc-counter" id="cardCounter">1 / ${FLASHCARDS.length}</span>
+      <button class="fc-nav-btn" onclick="navCard(1)">Next →</button>
+    </div>
+  </div>`;
+}
+
+function getFilteredCards(filter) {
+  switch(filter) {
+    case 'review': return FLASHCARDS.filter(c => state.flashcards.status[c.id] === 'review');
+    case 'unknown': return FLASHCARDS.filter(c => !state.flashcards.status[c.id]);
+    default: return FLASHCARDS;
+  }
+}
+
+function initFlashcard() {
+  showCard(state.flashcards.currentIndex);
+  updateFCProgress();
+}
+
+function showCard(index) {
+  const cards = getFilteredCards(state.flashcards.currentFilter);
+  if (cards.length === 0) {
+    document.getElementById('fcScene').innerHTML = `<div style="text-align:center;padding:var(--space-8);color:var(--color-text-muted);">No cards in this filter. <button onclick="setFCFilter('all')" style="color:var(--color-primary);text-decoration:underline;background:none;border:none;cursor:pointer;">Show all cards</button></div>`;
+    return;
+  }
+  state.flashcards.currentIndex = Math.max(0, Math.min(index, cards.length - 1));
+  state.flashcards.isFlipped = false;
+
+  const card = cards[state.flashcards.currentIndex];
+  const topic = TOPICS[card.topic - 1];
+  const inner = document.getElementById('fcInner');
+  const term = document.getElementById('fcTerm');
+  const def = document.getElementById('fcDef');
+  const topicTag = document.getElementById('fcTopicTag');
+  const topicTagBack = document.getElementById('fcTopicTagBack');
+  const counter = document.getElementById('cardCounter');
+  const actions = document.getElementById('fcActions');
+  if (!inner) return;
+
+  inner.classList.remove('flipped');
+  if (term) term.textContent = card.front;
+  if (def) def.innerHTML = card.back.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  const tagText = `T${card.topic}: ${topic ? topic.title.split(' – ')[0] || topic.title.split(' ')[0] : 'Topic'}`;
+  if (topicTag) topicTag.textContent = tagText;
+  if (topicTagBack) topicTagBack.textContent = tagText;
+  if (counter) counter.textContent = `${state.flashcards.currentIndex + 1} / ${cards.length}`;
+  if (actions) actions.style.display = 'none';
+  updateFCProgress();
+}
+
+function flipCard() {
+  const inner = document.getElementById('fcInner');
+  const actions = document.getElementById('fcActions');
+  if (!inner) return;
+  state.flashcards.isFlipped = !state.flashcards.isFlipped;
+  if (state.flashcards.isFlipped) {
+    inner.classList.add('flipped');
+    if (actions) actions.style.display = 'flex';
+  } else {
+    inner.classList.remove('flipped');
+    if (actions) actions.style.display = 'none';
+  }
+}
+
+function markCard(status) {
+  const cards = getFilteredCards(state.flashcards.currentFilter);
+  if (cards.length === 0) return;
+  const card = cards[state.flashcards.currentIndex];
+  state.flashcards.status[card.id] = status;
+  saveState();
+  updateProgressSummary();
+  navCard(1);
+}
+
+function navCard(dir) {
+  const cards = getFilteredCards(state.flashcards.currentFilter);
+  if (cards.length === 0) return;
+  let next = state.flashcards.currentIndex + dir;
+  if (next >= cards.length) next = 0;
+  if (next < 0) next = cards.length - 1;
+  showCard(next);
+}
+
+function setFCFilter(filter) {
+  state.flashcards.currentFilter = filter;
+  state.flashcards.currentIndex = 0;
+  document.querySelectorAll('.fc-filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().startsWith(filter));
+  });
+  showCard(0);
+}
+
+function updateFCProgress() {
+  const total = FLASHCARDS.length;
+  const known = Object.values(state.flashcards.status).filter(s => s === 'known').length;
+  const fill = document.getElementById('fcProgressFill');
+  const meta = document.getElementById('fcProgressMeta');
+  const knownEl = document.getElementById('fcKnownCount');
+  const cards = getFilteredCards(state.flashcards.currentFilter);
+  if (fill) fill.style.width = total > 0 ? `${(known / total) * 100}%` : '0%';
+  if (meta) meta.textContent = `Card ${state.flashcards.currentIndex + 1} of ${cards.length}`;
+  if (knownEl) knownEl.textContent = `${known} mastered`;
+}
+
+// ===== QUIZ =====
+function renderQuizUI() {
+  return `<div class="quiz-container" id="quizContainer">
+    ${renderQuizSetup()}
+  </div>`;
+}
+
+function renderQuizSetup() {
+  return `<div class="quiz-setup" id="quizSetup">
+    <div class="quiz-setup-title">Quiz Mode</div>
+    <div class="quiz-setup-sub">Test yourself with randomly selected practice questions.</div>
+    <div class="quiz-options">
+      <div class="quiz-option-group">
+        <div class="quiz-option-label">Number of Questions</div>
+        <div class="quiz-option-row">
+          ${[5, 10, 20, 40].map(n => `<button class="qo-btn${state.quiz.numQuestions === n ? ' selected' : ''}" onclick="setQuizOpt('numQuestions', ${n})">${n}</button>`).join('')}
+        </div>
+      </div>
+      <div class="quiz-option-group">
+        <div class="quiz-option-label">Topic Filter</div>
+        <div class="quiz-option-row">
+          <button class="qo-btn${state.quiz.filterTopic === 0 ? ' selected' : ''}" onclick="setQuizOpt('filterTopic', 0)">All Topics</button>
+          ${TOPICS.map(t => `<button class="qo-btn${state.quiz.filterTopic === t.id ? ' selected' : ''}" onclick="setQuizOpt('filterTopic', ${t.id})">T${t.id}</button>`).join('')}
+        </div>
+      </div>
+      <div class="quiz-option-group">
+        <div class="quiz-option-label">Timer</div>
+        <div class="quiz-option-row">
+          <button class="qo-btn${!state.quiz.useTimer ? ' selected' : ''}" onclick="setQuizOpt('useTimer', false)">No Timer</button>
+          <button class="qo-btn${state.quiz.useTimer ? ' selected' : ''}" onclick="setQuizOpt('useTimer', true)">60 min Timer</button>
+        </div>
+      </div>
+    </div>
+    <button class="start-quiz-btn" onclick="startQuiz()">Start Quiz</button>
+  </div>`;
+}
+
+function initQuizUI() {
+  // Nothing special needed on init
+}
+
+function setQuizOpt(key, val) {
+  state.quiz[key] = val;
+  document.getElementById('quizContainer').innerHTML = renderQuizSetup();
+}
+
+function startQuiz() {
+  let pool = state.quiz.filterTopic === 0 ? QUESTIONS : QUESTIONS.filter(q => q.topic === state.quiz.filterTopic);
+  // Shuffle
+  pool = [...pool].sort(() => Math.random() - 0.5);
+  state.quiz.questions = pool.slice(0, Math.min(state.quiz.numQuestions, pool.length));
+  state.quiz.currentIndex = 0;
+  state.quiz.answered = false;
+  state.quiz.selectedOption = null;
+  state.quiz.score = 0;
+  state.quiz.topicScores = {};
+  state.quiz.finished = false;
+  state.quiz.results = [];
+  state.quiz.active = true;
+
+  if (state.quiz.useTimer) {
+    state.quiz.timeLeft = 3600; // 60 min
+    startQuizTimer();
+  }
+
+  renderQuizQuestion();
+}
+
+function startQuizTimer() {
+  if (state.quiz.timer) clearInterval(state.quiz.timer);
+  state.quiz.timer = setInterval(() => {
+    state.quiz.timeLeft--;
+    updateTimerDisplay();
+    if (state.quiz.timeLeft <= 0) {
+      clearInterval(state.quiz.timer);
+      finishQuiz();
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  const el = document.getElementById('quizTimer');
+  if (!el) return;
+  const m = Math.floor(state.quiz.timeLeft / 60).toString().padStart(2, '0');
+  const s = (state.quiz.timeLeft % 60).toString().padStart(2, '0');
+  el.textContent = `${m}:${s}`;
+  el.className = 'quiz-timer';
+  if (state.quiz.timeLeft < 300) el.className = 'quiz-timer danger';
+  else if (state.quiz.timeLeft < 600) el.className = 'quiz-timer warning';
+}
+
+function renderQuizQuestion() {
+  const q = state.quiz.questions[state.quiz.currentIndex];
+  const total = state.quiz.questions.length;
+  const prog = ((state.quiz.currentIndex) / total) * 100;
+  const m = Math.floor(state.quiz.timeLeft / 60).toString().padStart(2, '0');
+  const s = (state.quiz.timeLeft % 60).toString().padStart(2, '0');
+  const timerHTML = state.quiz.useTimer ? `<span class="quiz-timer" id="quizTimer">${m}:${s}</span>` : '';
+  const hasTrick = q.trick !== null;
+
+  const html = `
+  <div class="quiz-active" id="quizActive">
+    <div class="quiz-topbar">
+      <span class="quiz-progress-text">Question ${state.quiz.currentIndex + 1} of ${total}</span>
+      <span class="quiz-score">Score: ${state.quiz.score}/${state.quiz.currentIndex}</span>
+      ${timerHTML}
+    </div>
+    <div class="quiz-q-bar"><div class="quiz-q-fill" style="width:${prog}%"></div></div>
+    <div class="question-card" id="questionCard">
+      <div class="question-meta">
+        <span class="q-topic-tag">T${q.topic}: ${q.topicName}</span>
+        ${hasTrick ? `<span class="q-trick-tag">⚡ Watch for "${q.trick}"</span>` : ''}
+        <span class="question-num">Q${q.id}</span>
+      </div>
+      <div class="question-text">${q.text.replace(/\n/g, '<br>')}</div>
+      <div class="options-list" id="optionsList">
+        ${q.options.map((opt, i) => `
+          <button class="option-btn" data-index="${i}" onclick="selectAnswer(${i})" id="opt_${i}">
+            <span class="option-letter">${String.fromCharCode(65+i)})</span>
+            <span>${opt.substring(3)}</span>
+          </button>
+        `).join('')}
+      </div>
+      <div class="explanation-box" id="explanationBox">
+        <div class="explanation-title">Explanation</div>
+        <div class="explanation-text">${q.explanation}</div>
+        ${hasTrick ? `<div class="trick-alert">⚠️ TRICK ALERT: This question uses "${q.trick}" wording. Always look for the ${q.trick === 'INCORRECT' || q.trick === 'NOT' ? 'false/excluded' : 'exception'} statement.</div>` : ''}
+      </div>
+    </div>
+    <button class="quiz-next-btn" id="quizNextBtn" onclick="nextQuestion()">
+      ${state.quiz.currentIndex + 1 < total ? 'Next Question →' : 'See Results'}
+    </button>
+  </div>`;
+
+  document.getElementById('quizContainer').innerHTML = html;
+}
+
+function selectAnswer(optionIndex) {
+  if (state.quiz.answered) return;
+  state.quiz.answered = true;
+  state.quiz.selectedOption = optionIndex;
+  const q = state.quiz.questions[state.quiz.currentIndex];
+  const correct = optionIndex === q.answer;
+
+  if (correct) state.quiz.score++;
+
+  // Track by topic
+  if (!state.quiz.topicScores[q.topic]) state.quiz.topicScores[q.topic] = { correct: 0, total: 0 };
+  state.quiz.topicScores[q.topic].total++;
+  if (correct) state.quiz.topicScores[q.topic].correct++;
+
+  state.quiz.results.push({ qId: q.id, correct, topicId: q.topic });
+
+  // Style buttons
+  for (let i = 0; i < q.options.length; i++) {
+    const btn = document.getElementById(`opt_${i}`);
+    btn.disabled = true;
+    if (i === q.answer) btn.classList.add('correct-answer');
+    if (i === optionIndex && !correct) btn.classList.add('incorrect');
+    if (i === optionIndex && correct) btn.classList.add('correct');
+  }
+
+  // Show explanation
+  document.getElementById('explanationBox').classList.add('show');
+  document.getElementById('quizNextBtn').classList.add('show');
+
+  // Update score display
+  const scoreEl = document.querySelector('.quiz-score');
+  if (scoreEl) scoreEl.textContent = `Score: ${state.quiz.score}/${state.quiz.currentIndex + 1}`;
+}
+
+function nextQuestion() {
+  state.quiz.currentIndex++;
+  state.quiz.answered = false;
+  state.quiz.selectedOption = null;
+  if (state.quiz.currentIndex >= state.quiz.questions.length) {
+    finishQuiz();
+  } else {
+    renderQuizQuestion();
+  }
+}
+
+function finishQuiz() {
+  if (state.quiz.timer) clearInterval(state.quiz.timer);
+  state.quiz.finished = true;
+  const total = state.quiz.questions.length;
+  const score = state.quiz.score;
+  const pct = total > 0 ? Math.round((score / total) * 100) : 0;
+  const pass = pct >= 70;
+  const circumference = 2 * Math.PI * 45;
+  const offset = circumference - (pct / 100) * circumference;
+
+  const breakdown = Object.entries(state.quiz.topicScores).map(([topicId, ts]) => {
+    const topic = TOPICS.find(t => t.id === parseInt(topicId));
+    return `<div class="results-topic-row">
+      <div class="results-topic-name">${topic ? `T${topicId}: ${topic.title}` : `Topic ${topicId}`}</div>
+      <div class="results-topic-stat">${ts.correct}/${ts.total} (${Math.round((ts.correct/ts.total)*100)}%)</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('quizContainer').innerHTML = `
+  <div class="quiz-results">
+    <div class="results-score-ring">
+      <svg width="120" height="120" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="45" stroke="var(--color-border)" stroke-width="10" fill="none"/>
+        <circle cx="60" cy="60" r="45" stroke="${pass ? 'var(--color-success)' : 'var(--color-error)'}"
+                stroke-width="10" fill="none" stroke-dasharray="${circumference}"
+                stroke-dashoffset="${offset}" stroke-linecap="round"/>
+      </svg>
+      <div class="results-score-text">
+        <span class="results-score-num">${pct}%</span>
+        <span class="results-score-denom">${score}/${total}</span>
+      </div>
+    </div>
+    <div class="results-verdict ${pass ? 'pass' : 'fail'}">${pass ? '✓ PASS' : '✗ FAIL'}</div>
+    <div class="results-detail">${pass ? 'Well done! You exceeded the 70% pass mark.' : 'Keep studying. You need 70% to pass the exam.'}</div>
+    ${breakdown ? `<div class="results-breakdown"><div class="results-breakdown-title">Performance by Topic</div>${breakdown}</div>` : ''}
+    <div class="results-actions">
+      <button class="results-retry-btn" onclick="startQuiz()">Retry Quiz</button>
+      <button class="results-review-btn" onclick="resetQuizSetup()">Change Settings</button>
+    </div>
+  </div>`;
+}
+
+function resetQuizSetup() {
+  state.quiz.active = false;
+  document.getElementById('quizContainer').innerHTML = renderQuizSetup();
+}
+
+// ===== KEY NUMBERS =====
+function renderKeyNumbers() {
+  const categories = [...new Set(KEY_NUMBERS.map(k => k.category))];
+  return `<div class="key-numbers-container">
+    <div style="margin-bottom:var(--space-6);">
+      <h1 style="font-size:var(--text-lg);font-weight:800;color:var(--color-text);margin-bottom:var(--space-2);">Key Numbers Reference</h1>
+      <p style="font-size:var(--text-sm);color:var(--color-text-muted);">All important thresholds, amounts, and timeframes — heavily tested in the exam.</p>
+    </div>
+    ${categories.map(cat => {
+      const cards = KEY_NUMBERS.filter(k => k.category === cat);
+      return `<div class="kn-section-title">${cat}</div>
+      <div class="kn-grid">
+        ${cards.map(k => `
+          <div class="kn-card ${k.type === 'gold' ? 'gold' : k.type === 'error' ? 'error' : ''}">
+            <div class="kn-number">${k.number}</div>
+            <div class="kn-label">${k.label}</div>
+            <div class="kn-desc">${k.desc}</div>
+          </div>
+        `).join('')}
+      </div>`;
+    }).join('')}
+  </div>`;
+}
+
+// ===== TRICK PATTERNS =====
+function renderTrickPatterns() {
+  return `<div class="tricks-container">
+    <div style="margin-bottom:var(--space-6);">
+      <h1 style="font-size:var(--text-lg);font-weight:800;color:var(--color-text);margin-bottom:var(--space-2);">Trick Question Patterns</h1>
+      <p style="font-size:var(--text-sm);color:var(--color-text-muted);">The HKSI Paper 2 frequently uses these patterns to confuse candidates. Learn to recognize them.</p>
+    </div>
+    ${TRICK_PATTERNS.map((p, i) => `
+      <div class="trick-card" id="trick_${i}">
+        <div class="trick-card-header">
+          <div class="trick-icon">${p.icon}</div>
+          <div class="trick-heading">
+            <div class="trick-title">${p.title}</div>
+            <div class="trick-subtitle">${p.subtitle}</div>
+          </div>
+        </div>
+        <div class="trick-body">
+          ${p.example ? `
+          <div class="trick-example">
+            <div class="trick-example-label">Example question pattern</div>
+            <div class="trick-example-text">${p.example.q.replace(
+              p.example.highlight || '__NOHIGHLIGHT__',
+              p.example.highlight ? `<mark>${p.example.highlight}</mark>` : ''
+            ).replace(/\n/g, '<br>')}</div>
+          </div>
+          <div class="trick-tip"><strong>Strategy:</strong> ${p.example.tip}</div>
+          ` : ''}
+        </div>
+      </div>
+    `).join('')}
+  </div>`;
+}
+
+// ===== GLOBAL NAV =====
+window.switchMode = switchMode;
+window.selectTopic = selectTopic;
+window.toggleNode = toggleNode;
+window.expandAll = expandAll;
+window.collapseAll = collapseAll;
+window.flipCard = flipCard;
+window.markCard = markCard;
+window.navCard = navCard;
+window.setFCFilter = setFCFilter;
+window.setQuizOpt = setQuizOpt;
+window.startQuiz = startQuiz;
+window.selectAnswer = selectAnswer;
+window.nextQuestion = nextQuestion;
+window.resetQuizSetup = resetQuizSetup;
+
+// ===== REFERENCE TABLES =====
+const REF_CAPITAL_DATA = [
+  { role: 'Advising on securities (Type 4) — not holding client assets', paidUp: 'Nil', liquid: 'HK$100,000', risk: 'Lowest' },
+  { role: 'Approved Introducing Agent (AIA)', paidUp: 'Nil', liquid: 'HK$500,000', risk: 'Low' },
+  { role: 'Dealing in securities (Type 1) — without SMF', paidUp: 'HK$5,000,000', liquid: 'HK$3,000,000', risk: 'Medium' },
+  { role: 'Advising on securities (Type 4) — holding client assets', paidUp: 'HK$5,000,000', liquid: 'HK$3,000,000', risk: 'Medium' },
+  { role: 'Securities margin financing (Type 8)', paidUp: 'HK$10,000,000', liquid: 'HK$3,000,000', risk: 'High' },
+  { role: 'Dealing in securities (Type 1) — with SMF', paidUp: 'HK$10,000,000', liquid: 'HK$3,000,000', risk: 'High' },
+  { role: 'SEOCH Direct Clearing Participant (DCP)', paidUp: '—', liquid: 'HK$5,000,000 + HK$1.5M reserve', risk: 'Higher' },
+  { role: 'SEOCH General Clearing Participant (GCP)', paidUp: '—', liquid: 'HK$20,000,000 + HK$5M reserve', risk: 'Highest' }
+];
+
+const REF_PENALTIES_DATA = [
+  { offence: 'RO maintenance failure (s.125 SFO)', fine: 'Level 6 + HK$2,000/day', prison: '—', topic: 'T1', ref: 's.125 SFO' },
+  { offence: 'SFC/IA disciplinary fine', fine: 'HK$10M or 3× profit/loss', prison: '— (civil)', topic: 'T1', ref: 'ss.194, 196 SFO' },
+  { offence: 'FRR breach (no fraud intent)', fine: 'HK$1,000,000', prison: '2 years', topic: 'T2', ref: 'FRR s.1.38' },
+  { offence: 'FRR breach with intent to defraud', fine: 'HK$1,000,000', prison: '7 years', topic: 'T2', ref: 'FRR s.1.38' },
+  { offence: 'Client Securities Rules breach (fraud)', fine: 'HK$1,000,000', prison: '7 years', topic: 'T2', ref: 'Client Securities Rules' },
+  { offence: 'Contract Notes Rules breach (no intent)', fine: 'Level 4 fine', prison: '—', topic: 'T2', ref: 's.4.18' },
+  { offence: 'Contract Notes Rules breach (fraud, indictment)', fine: 'HK$1,000,000', prison: '7 years', topic: 'T2', ref: 's.4.19' },
+  { offence: 'Contract Notes Rules breach (fraud, summary)', fine: 'HK$500,000', prison: '1 year', topic: 'T2', ref: 's.4.19' },
+  { offence: 'Records Rules breach (fraud, indictment)', fine: 'HK$1,000,000', prison: '7 years', topic: 'T2', ref: 'ss.5.13–5.14' },
+  { offence: 'Records Rules breach (fraud, summary)', fine: 'HK$500,000', prison: '1 year', topic: 'T2', ref: 'ss.5.13–5.14' },
+  { offence: 'AMLO breach (no fraud)', fine: 'HK$1,000,000', prison: '2 years', topic: 'T3', ref: 'AMLO s.5.6' },
+  { offence: 'AMLO breach (fraud intent)', fine: 'HK$1,000,000', prison: '7 years', topic: 'T3', ref: 'AMLO s.5.6' },
+  { offence: 'WMD services (proliferation)', fine: 'Unlimited', prison: '7 years', topic: 'T3', ref: 'WMD(CPS)O s.5.15' },
+  { offence: 'Market misconduct — 6 forms (indictment)', fine: 'HK$10,000,000', prison: '10 years', topic: 'T7', ref: 's.303 SFO' },
+  { offence: 'Market misconduct — 6 forms (summary)', fine: 'HK$1,000,000', prison: '3 years', topic: 'T7', ref: 's.303 SFO' },
+  { offence: 'Fraud/deception s.300 SFO (indictment)', fine: 'HK$10,000,000', prison: '10 years', topic: 'T7', ref: 's.300 SFO' },
+  { offence: 'Inside info disclosure failure (civil)', fine: 'HK$8,000,000', prison: '— (civil)', topic: 'T7', ref: 'Part XIVA SFO' }
+];
+
+const REF_TIMELINES_DATA = [
+  { what: 'Special resolution notice — 14 days notice; copy lodged with Registrar within 15 days', period: '14 days / 15 days', topic: 'T1', category: 'Notification' },
+  { what: 'AGM — public companies after accounting reference period end', period: 'Within 6 months', topic: 'T1', category: 'Filing' },
+  { what: 'AGM — private/guarantee companies after accounting reference period end', period: 'Within 9 months', topic: 'T1', category: 'Filing' },
+  { what: 'Certificate of solvency for voluntary winding-up', period: 'Within 5 weeks preceding', topic: 'T1', category: 'Filing' },
+  { what: 'Company must be able to pay debts (solvency certificate condition)', period: '12 months', topic: 'T1', category: 'Filing' },
+  { what: 'Creditors meeting in voluntary winding-up — min 7 days notice', period: 'Within 14 days', topic: 'T1', category: 'Notification' },
+  { what: 'Licensed representative cessation — notify SFC', period: '7 business days', topic: 'T1', category: 'Notification' },
+  { what: 'Licensed representative transfer accreditation after cessation', period: '180 days', topic: 'T1', category: 'Other' },
+  { what: 'Temporary licence duration (max over 24-month period: 6 months)', period: 'Max 3 months', topic: 'T1', category: 'Other' },
+  { what: 'Substantial shareholder changes notification to SFC', period: 'Within 14 days', topic: 'T1', category: 'Notification' },
+  { what: 'Substantial shareholder — notify SFC of becoming aware', period: '3 business days', topic: 'T1', category: 'Notification' },
+  { what: 'CPT — licensed representative minimum hours per year', period: '10 hours/year', topic: 'T1', category: 'Other' },
+  { what: 'CPT — RO/executive officer minimum hours per year (incl. 2 hrs regulatory)', period: '12 hours/year', topic: 'T1', category: 'Other' },
+  { what: 'CPT — minimum hours directly relevant to RAs', period: '5 hours/year', topic: 'T1', category: 'Other' },
+  { what: 'CPT — minimum hours on ethics/compliance', period: '2 hours/year', topic: 'T1', category: 'Other' },
+  { what: 'New practitioner — ethics CPT (one-off)', period: 'Within 12 months', topic: 'T1', category: 'Other' },
+  { what: 'CPT records retention', period: 'Min 3 years', topic: 'T1', category: 'Record-Keeping' },
+  { what: 'SFC search warrant validity', period: '7 days', topic: 'T1', category: 'Other' },
+  { what: 'SFC retained/seized documents held', period: '6 months (extendable)', topic: 'T1', category: 'Other' },
+  { what: 'SFC Client Identity Rule — provide identity after request', period: '2 business days', topic: 'T1', category: 'Reporting' },
+  { what: 'Standing authority for use of client securities (no limit for PIs)', period: 'Max 12 months', topic: 'T2', category: 'Standing Authority' },
+  { what: 'Deemed renewal of standing authority — notice before expiry', period: '14 days before expiry', topic: 'T2', category: 'Standing Authority' },
+  { what: 'Deemed renewal — written confirmation after expiry', period: '1 week after expiry', topic: 'T2', category: 'Standing Authority' },
+  { what: 'Re-pledged securities exceeding 140% of debt — must reduce', period: 'Close of next business day', topic: 'T2', category: 'Notification' },
+  { what: 'Non-client money in segregated account — must remove', period: '1 business day', topic: 'T2', category: 'Notification' },
+  { what: 'Client money received — deposit into segregated account', period: '1 business day', topic: 'T2', category: 'Filing' },
+  { what: 'Client money settlement exception — may retain if used', period: '2 business days', topic: 'T2', category: 'Settlement' },
+  { what: 'Non-client money not removed — report to SFC', period: '1 business day', topic: 'T2', category: 'Notification' },
+  { what: 'Monthly FRR returns after month end', period: '3 weeks', topic: 'T2', category: 'Reporting' },
+  { what: 'Quarterly FRR returns after quarter end', period: '3 weeks', topic: 'T2', category: 'Reporting' },
+  { what: 'Half-yearly FRR returns after half-year end', period: '3 weeks', topic: 'T2', category: 'Reporting' },
+  { what: 'FRR liquid capital / paid-up failure — notify SFC', period: 'Promptly', topic: 'T2', category: 'Notification' },
+  { what: 'Other FRR requirements failure — notify SFC', period: '1 business day', topic: 'T2', category: 'Notification' },
+  { what: 'Contract note — issue after entering contract', period: 'End of 2nd business day', topic: 'T2', category: 'Filing' },
+  { what: 'Daily statement of account', period: 'End of 2nd business day', topic: 'T2', category: 'Filing' },
+  { what: 'Monthly statement of account after month end', period: '7 business days', topic: 'T2', category: 'Filing' },
+  { what: 'Receipt for client assets after receipt', period: 'End of 2nd business day', topic: 'T2', category: 'Filing' },
+  { what: 'Contract notes, daily statements, receipts retention', period: 'Min 2 years', topic: 'T2', category: 'Record-Keeping' },
+  { what: 'Monthly statements of account retention', period: 'Min 7 years', topic: 'T2', category: 'Record-Keeping' },
+  { what: 'Non-compliance with Contract Notes Rules — notify SFC', period: '1 business day', topic: 'T2', category: 'Notification' },
+  { what: 'General records retention (Keeping of Records Rules)', period: 'At least 7 years', topic: 'T2', category: 'Record-Keeping' },
+  { what: 'Orders/instructions and contract notes records retention', period: 'At least 2 years', topic: 'T2', category: 'Record-Keeping' },
+  { what: 'Documentary assurances for short sales retention', period: '1 year', topic: 'T2', category: 'Record-Keeping' },
+  { what: 'Non-compliance with Records Rules — notify SFC', period: '1 business day', topic: 'T2', category: 'Notification' },
+  { what: 'Auditor appointment after licensing or cessation', period: '1 month', topic: 'T2', category: 'Filing' },
+  { what: 'Notify SFC of auditor appointment', period: '7 business days', topic: 'T2', category: 'Notification' },
+  { what: 'Notify SFC of auditor cessation or removal', period: '1 business day', topic: 'T2', category: 'Notification' },
+  { what: 'Notify SFC of financial year end date after licensing', period: '1 month', topic: 'T2', category: 'Notification' },
+  { what: 'Financial year maximum duration', period: '12 months', topic: 'T2', category: 'Filing' },
+  { what: 'Annual accounts submission to SFC after year end', period: '4 months', topic: 'T2', category: 'Filing' },
+  { what: 'ICF claim filing after ICC notice', period: '3 months', topic: 'T2', category: 'Filing' },
+  { what: 'ICF claim filing after first becoming aware of default (no ICC notice)', period: '6 months', topic: 'T2', category: 'Filing' },
+  { what: 'CLRP — report after first reportable position; daily thereafter', period: '1 business day', topic: 'T2', category: 'Reporting' },
+  { what: 'CLRP authorisation variation/withdrawal notice', period: '5 business days', topic: 'T2', category: 'Notification' },
+  { what: 'OTC derivative transaction reports', period: 'T+2', topic: 'T2', category: 'Reporting' },
+  { what: 'OTC derivatives reporting grace period for newly non-exempt entities', period: '3 months', topic: 'T2', category: 'Reporting' },
+  { what: 'OTC derivatives daily valuation while outstanding', period: 'Daily', topic: 'T2', category: 'Reporting' },
+  { what: 'OTC derivative transaction records retention', period: 'At least 5 years', topic: 'T2', category: 'Record-Keeping' },
+  { what: 'OTC clearing obligation — clear through designated CCP', period: '1 business day', topic: 'T2', category: 'Settlement' },
+  { what: 'OTC clearing records retention', period: 'At least 5 years', topic: 'T2', category: 'Record-Keeping' },
+  { what: 'Telephone recordings of client orders retention', period: 'At least 6 months', topic: 'T3', category: 'Record-Keeping' },
+  { what: 'Soft-dollar arrangement disclosure to clients', period: 'At least annually', topic: 'T3', category: 'Reporting' },
+  { what: 'Cash rebate disclosure details', period: 'Twice annually or per contract note', topic: 'T3', category: 'Reporting' },
+  { what: 'AML/CFT — CDD records retention after end of relationship', period: '5 years after end', topic: 'T3', category: 'Record-Keeping' },
+  { what: 'AML/CFT — transaction records after completion', period: '5 years', topic: 'T3', category: 'Record-Keeping' },
+  { what: 'AML/CFT — risk assessment review frequency', period: 'Every 2 years', topic: 'T3', category: 'Reporting' },
+  { what: 'Options contract adjustments — notify client', period: '1 business day', topic: 'T3', category: 'Notification' },
+  { what: 'Associated entity monthly reconciliation', period: 'Monthly', topic: 'T3', category: 'Reporting' },
+  { what: 'SEHK trades — stock settlement', period: 'T+2', topic: 'T4', category: 'Settlement' },
+  { what: 'SEHK trades — money settlement (DVP)', period: 'T+2', topic: 'T4', category: 'Settlement' },
+  { what: 'Compulsory buy-in if stock not settled', period: 'T+3', topic: 'T4', category: 'Settlement' },
+  { what: 'Final Clearing Statements from CCASS', period: 'After 2:00 pm on T+1', topic: 'T4', category: 'Settlement' },
+  { what: 'Direct business transactions input into OTP-C', period: '1 minute', topic: 'T4', category: 'Filing' },
+  { what: 'Direct business transactions not yet input — report at next session', period: '15 minutes', topic: 'T4', category: 'Reporting' },
+  { what: 'Trading halt maximum before suspension', period: '2 trading days', topic: 'T4', category: 'Other' },
+  { what: 'Trading suspension — delisting threshold', period: '18 consecutive months', topic: 'T4', category: 'Other' },
+  { what: 'SMF — notify SFC when drawing exceeds limits / unable to meet demands for 3 consecutive business days', period: '1 business day', topic: 'T5', category: 'Notification' },
+  { what: 'SMF bank borrowing notification (≥80% credit for 2 weeks)', period: '1 business day', topic: 'T5', category: 'Notification' },
+  { what: 'SMF — margin policy and credit limits review', period: 'At least annually', topic: 'T5', category: 'Other' },
+  { what: 'SMF — concentration limits review', period: 'At least annually', topic: 'T5', category: 'Other' },
+  { what: 'SMF — margin call triggers review', period: 'At least annually', topic: 'T5', category: 'Other' },
+  { what: 'SMF — haircut methodology review', period: 'At least annually', topic: 'T5', category: 'Other' },
+  { what: 'SMF — stress tests (ELC and liquidity)', period: 'At least monthly', topic: 'T5', category: 'Reporting' },
+  { what: 'SMF — margin calls >90 days exceeding 25% shareholder funds → notify SFC', period: 'Immediately', topic: 'T5', category: 'Notification' },
+  { what: 'SMF standing authority for repledging (14 days notice for deemed renewal; 1 week confirmation)', period: 'Renewed annually', topic: 'T5', category: 'Standing Authority' },
+  { what: 'Short position reports (weekly)', period: '2 business days after reporting day', topic: 'T5', category: 'Reporting' },
+  { what: 'Short position reports (daily, if SFC direction)', period: '1 business day', topic: 'T5', category: 'Reporting' },
+  { what: 'Research analyst dealing restrictions — before and after research report', period: '30 days before / 3 days after', topic: 'T5', category: 'Cooling-Off' },
+  { what: 'Quiet period after IPO pricing', period: '40 days', topic: 'T5', category: 'Cooling-Off' },
+  { what: 'Quiet period after secondary public offering pricing', period: '10 days', topic: 'T5', category: 'Cooling-Off' },
+  { what: 'ATS records retention after system ceased use', period: 'Min 2 years', topic: 'T5', category: 'Record-Keeping' },
+  { what: 'ATS failure records retention', period: 'Min 2 years', topic: 'T5', category: 'Record-Keeping' },
+  { what: 'Unsolicited call rescission right — from entering agreement or discovering contravention', period: '28 days / 7 days (whichever earlier)', topic: 'T5', category: 'Cooling-Off' },
+  { what: 'Equity warrants — term from date of issue', period: 'Min 1 year; max 5 years', topic: 'T5', category: 'Other' },
+  { what: 'Derivative warrants — lifespan', period: '6 months to 5 years', topic: 'T5', category: 'Other' },
+  { what: 'CBBCs — lifespan', period: '3 months to 5 years', topic: 'T5', category: 'Other' },
+  { what: 'Main Board listing — trading record requirement', period: '3 full financial years', topic: 'T5', category: 'Other' },
+  { what: 'GEM listing — trading record requirement', period: '2 full financial years', topic: 'T5', category: 'Other' },
+  { what: 'Latest financial period in prospectus — must not have ended more than', period: '6 months before prospectus date', topic: 'T5', category: 'Filing' },
+  { what: 'Stock Connect SBL agreement (Type 1 — standard)', period: 'Max 1 calendar month', topic: 'T5', category: 'Settlement' },
+  { what: 'Stock Connect SBL agreement (Type 2 — day rollover)', period: 'Max 1 day', topic: 'T5', category: 'Settlement' },
+  { what: 'Stock Connect share accumulation limit (per day / 10-day rolling)', period: '1% per day; 5% in 10 days', topic: 'T5', category: 'Reporting' },
+  { what: 'Stock Connect Northbound settlement — securities on T; money on T or T+1', period: 'T / T+1', topic: 'T5', category: 'Settlement' },
+  { what: 'Stock Connect Southbound settlement', period: 'T+2', topic: 'T5', category: 'Settlement' },
+  { what: 'Virtual asset-related products — trading record', period: '2 years', topic: 'T5', category: 'Other' },
+  { what: 'Exchange-traded options margin calculation', period: 'Daily (after-business period)', topic: 'T6', category: 'Reporting' },
+  { what: 'Market maker permit revocation — failure to respond to ≥50% quote requests', period: '2 consecutive months', topic: 'T6', category: 'Other' },
+  { what: 'OTC derivatives — daily risk valuations while positions outstanding', period: 'Daily', topic: 'T6', category: 'Reporting' },
+  { what: 'MMT disqualification orders — max prohibition period', period: 'Up to 5 years', topic: 'T7', category: 'Other' },
+  { what: 'MMT cold shoulder orders — max prohibition period', period: 'Up to 5 years', topic: 'T7', category: 'Other' },
+  { what: 'Unsolicited call rescission (market misconduct context)', period: '28 days / 7 days (whichever earlier)', topic: 'T7', category: 'Cooling-Off' },
+  { what: 'Criminal sanctions for market misconduct — max imprisonment on indictment', period: '10 years', topic: 'T7', category: 'Other' }
+];
+
+function renderRefTables() {
+  return `
+  <div class="ref-tables-container">
+    <div class="ref-tab-bar">
+      <button class="ref-tab-btn active" data-tab="capital" onclick="switchRefTab('capital')">💰 Capital Requirements</button>
+      <button class="ref-tab-btn" data-tab="penalties" onclick="switchRefTab('penalties')">⚖️ Penalties</button>
+      <button class="ref-tab-btn" data-tab="timelines" onclick="switchRefTab('timelines')">⏱️ Timelines & Deadlines</button>
+    </div>
+
+    <div class="ref-tab-panel active" id="refTabCapital">
+      <div class="ref-table-wrap">
+        <div class="ref-table-scroll">
+          <table class="ref-table">
+            <thead>
+              <tr>
+                <th>Role / Activity Type</th>
+                <th>Paid-Up Capital</th>
+                <th>Liquid Capital</th>
+                <th>Risk Level</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${REF_CAPITAL_DATA.map(r => `
+                <tr>
+                  <td>${r.role}</td>
+                  <td>${r.paidUp}</td>
+                  <td>${r.liquid}</td>
+                  <td><span class="ref-risk-tag ${r.risk.toLowerCase()}">${r.risk}</span></td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ref-notes-box">
+        <h4>📌 Key Exam Notes</h4>
+        <ul>
+          <li>If licensed for multiple activities → maintain <strong>highest single requirement</strong> (they don't stack)</li>
+          <li>Registered institutions (banks) follow HKMA rules, <strong>NOT</strong> SFC FRR</li>
+          <li>Type 4 gap: <strong>Nil</strong> vs <strong>HK$5M</strong> paid-up depending on holding client assets</li>
+          <li>SMF doubles Type 1 paid-up from <strong>HK$5M</strong> to <strong>HK$10M</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ref-tab-panel" id="refTabPenalties">
+      <div class="ref-table-wrap">
+        <div class="ref-table-scroll">
+          <table class="ref-table">
+            <thead>
+              <tr>
+                <th>Offence</th>
+                <th>Max Fine</th>
+                <th>Max Imprisonment</th>
+                <th>Topic</th>
+                <th>Reference</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${REF_PENALTIES_DATA.map(r => `
+                <tr>
+                  <td>${r.offence}</td>
+                  <td style="white-space:nowrap;">${r.fine}</td>
+                  <td style="white-space:nowrap;">${r.prison}</td>
+                  <td><span class="ref-topic-tag">${r.topic}</span></td>
+                  <td style="font-size:var(--text-xs);color:var(--color-text-muted);">${r.ref}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ref-notes-box">
+        <h4>📌 Key Exam Notes</h4>
+        <ul>
+          <li>Pattern: <strong>"no intent" = HK$1M + 2 years</strong>; <strong>"with fraud" = HK$1M + 7 years</strong></li>
+          <li>Market misconduct is the <strong>MOST severe: HK$10M + 10 years</strong> (on indictment)</li>
+          <li>MMT orders: disqualification/cold shoulder up to <strong>5 years</strong></li>
+          <li>Investor Compensation Fund: max <strong>HK$500K</strong> per claim type; max <strong>HK$1M</strong> total</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ref-tab-panel" id="refTabTimelines">
+      <div class="ref-filter-bar">
+        <input type="text" class="ref-search-input" id="timelineSearch" placeholder="Search timelines..." oninput="filterTimelines()">
+        <span class="ref-table-count" id="timelineCount">${REF_TIMELINES_DATA.length} entries</span>
+      </div>
+      <div class="ref-filter-bar" id="timelineCategoryBar">
+        <button class="ref-filter-btn active" data-cat="All" onclick="filterTimelineCat(this,'All')">All</button>
+        <button class="ref-filter-btn" data-cat="Filing" onclick="filterTimelineCat(this,'Filing')">Filing</button>
+        <button class="ref-filter-btn" data-cat="Notification" onclick="filterTimelineCat(this,'Notification')">Notification</button>
+        <button class="ref-filter-btn" data-cat="Record-Keeping" onclick="filterTimelineCat(this,'Record-Keeping')">Record-Keeping</button>
+        <button class="ref-filter-btn" data-cat="Settlement" onclick="filterTimelineCat(this,'Settlement')">Settlement</button>
+        <button class="ref-filter-btn" data-cat="Reporting" onclick="filterTimelineCat(this,'Reporting')">Reporting</button>
+        <button class="ref-filter-btn" data-cat="Cooling-Off" onclick="filterTimelineCat(this,'Cooling-Off')">Cooling-Off</button>
+        <button class="ref-filter-btn" data-cat="Standing Authority" onclick="filterTimelineCat(this,'Standing Authority')">Standing Authority</button>
+        <button class="ref-filter-btn" data-cat="Other" onclick="filterTimelineCat(this,'Other')">Other</button>
+      </div>
+      <div class="ref-table-wrap">
+        <div class="ref-table-scroll scrollable">
+          <table class="ref-table" id="timelineTable">
+            <thead>
+              <tr>
+                <th>What</th>
+                <th>Time Period</th>
+                <th>Topic</th>
+                <th>Category</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${REF_TIMELINES_DATA.map(r => `
+                <tr data-cat="${r.category}">
+                  <td>${r.what}</td>
+                  <td style="white-space:nowrap;font-weight:600;color:var(--color-primary);">${r.period}</td>
+                  <td><span class="ref-topic-tag">${r.topic}</span></td>
+                  <td style="font-size:var(--text-xs);color:var(--color-text-muted);">${r.category}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  `;
+}
+
+let _currentTimelineCat = 'All';
+
+function switchRefTab(tab) {
+  document.querySelectorAll('.ref-tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  document.getElementById('refTabCapital').classList.toggle('active', tab === 'capital');
+  document.getElementById('refTabPenalties').classList.toggle('active', tab === 'penalties');
+  document.getElementById('refTabTimelines').classList.toggle('active', tab === 'timelines');
+}
+
+function filterTimelineCat(btn, cat) {
+  _currentTimelineCat = cat;
+  document.querySelectorAll('#timelineCategoryBar .ref-filter-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+  filterTimelines();
+}
+
+function filterTimelines() {
+  const search = (document.getElementById('timelineSearch')?.value || '').toLowerCase();
+  const cat = _currentTimelineCat;
+  const rows = document.querySelectorAll('#timelineTable tbody tr');
+  let visible = 0;
+  rows.forEach(row => {
+    const text = row.textContent.toLowerCase();
+    const rowCat = row.dataset.cat;
+    const matchCat = cat === 'All' || rowCat === cat;
+    const matchSearch = !search || text.includes(search);
+    const show = matchCat && matchSearch;
+    row.classList.toggle('hidden-row', !show);
+    if (show) visible++;
+  });
+  const countEl = document.getElementById('timelineCount');
+  if (countEl) countEl.textContent = `${visible} of ${REF_TIMELINES_DATA.length} entries`;
+}
+
+function initTableTabs() {
+  // Tables are already rendered, just reset state
+  _currentTimelineCat = 'All';
+}
+
+window.switchRefTab = switchRefTab;
+window.filterTimelineCat = filterTimelineCat;
+window.filterTimelines = filterTimelines;
+
+// ===== BOOT =====
+document.addEventListener('DOMContentLoaded', init);
+</script>
+<footer style="position:fixed;bottom:var(--space-2);right:var(--space-4);z-index:10;font-size:var(--text-xs);color:var(--color-text-faint);">
+  <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" style="color:var(--color-text-faint);text-decoration:none;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-text-faint)'">Created with Perplexity Computer</a>
+</footer>
+</body></html>
